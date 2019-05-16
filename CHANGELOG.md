@@ -1,6 +1,10 @@
 # Changelog
 
-## 1.0.1 (May 15th, 2019)
+## 1.0.3 (May 16th, 2019)
+
+- Update README
+
+## 1.0.2 (May 15th, 2019)
 
 - Updated github links
 

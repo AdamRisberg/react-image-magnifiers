@@ -9,6 +9,9 @@ Included components:
 - SideBySideMagnifier: Displays a zoomed in view of the image on hover/touch alongside the small version. Automatically zooms in place when there's not enough room to display alongside.
 - PictureInPictureMagnifier: Displays a small preview image with a zoom area preview box in the corner of the component. User can move the preview box around to change the portion of the enlarged image to display.
 
+[![npm version](https://img.shields.io/npm/v/react-image-magnifiers.svg?style=flat)](https://npmjs.org/package/react-image-magnifiers "View this project on npm")
+[![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+
 ## Demo
 
 Visit the [react-image-magnifiers demo site](https://adamrisberg.github.io/react-image-magnifiers).
