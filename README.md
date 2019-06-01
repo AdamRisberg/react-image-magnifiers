@@ -50,7 +50,7 @@ import {
 />
 ```
 
-Note: The zoom level of all components depends on the rendered size difference between the small and large versions of the image. On all components except for the PictureInPictureMagnifier, the zoom functionality will be disabled if the large image size is <= the small image's current rendered size. The PictureInPictureMagnifier requires that the large/zoom image is larger to display properly.
+Note: The zoom level of all components depends on the rendered size difference between the small and large versions of the image. On all components, the zoom functionality will be disabled if the large image size is <= to the small image's current rendered size.
 
 ## Common Props
 
