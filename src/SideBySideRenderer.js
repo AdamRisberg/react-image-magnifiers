@@ -19,11 +19,15 @@ const SideBySideRenderer = props => {
     alwaysInPlace,
     transitionSpeed,
     transitionSpeedInPlace,
-    renderOverlay
+    renderOverlay,
+    cursorStyle
   } = props;
 
-  const inPlace = alwaysInPlace || elementDimensions.width * 2 + elementOffset.left > window.innerWidth;
-  const isActive = itemDimensions.width > elementDimensions.width && active;
+  const inPlace =
+    alwaysInPlace ||
+    elementDimensions.width * 2 + elementOffset.left > window.innerWidth;
+  const legalSize = itemDimensions.width > elementDimensions.width;
+  const isActive = legalSize && active;
   const transSpeed = inPlace ? transitionSpeedInPlace : transitionSpeed;
 
   const smallImageSize = {
@@ -93,12 +97,18 @@ const SideBySideRenderer = props => {
   previewSize.bottom = Math.floor(itemPositionAdj.y + previewOffset.y) || 0;
 
   return (
-    <div style={{ 
-      position: "relative",
-      overflow: inPlace ? "hidden" : "visible"
-    }}>
+    <div
+      style={{
+        position: "relative",
+        overflow: inPlace ? "hidden" : "visible"
+      }}
+    >
       <img
-        style={{ width: "100%", display: "block" }}
+        style={{
+          width: "100%",
+          display: "block",
+          cursor: legalSize ? cursorStyle : "default"
+        }}
         src={imageSrc}
         alt={imageAlt}
       />
@@ -108,7 +118,7 @@ const SideBySideRenderer = props => {
             smallImageSize.width,
             smallImageSize.height,
             inPlace
-          ), 
+          ),
           opacity: isActive ? "1" : "0",
           transition: `opacity ${transSpeed}s ease`
         }}

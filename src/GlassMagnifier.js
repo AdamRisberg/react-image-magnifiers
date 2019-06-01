@@ -38,7 +38,6 @@ const GlassMagnifier = props => {
       trackItemPosition
       alignItemOnActivePos
       itemPositionLimitBySize
-      cursorStyle={cursorStyle}
     >
       <GlassRenderer
         magnifierBorderSize={magnifierBorderSize}
@@ -52,6 +51,7 @@ const GlassMagnifier = props => {
         magnifierOffsetX={magnifierOffsetX}
         magnifierOffsetY={magnifierOffsetY}
         renderOverlay={renderOverlay}
+        cursorStyle={cursorStyle}
       />
     </ReactInputPosition>
   );
@@ -65,10 +65,7 @@ GlassMagnifier.propTypes = {
   magnifierBorderSize: PropTypes.number,
   magnifierBorderColor: PropTypes.string,
   magnifierBackgroundColor: PropTypes.string,
-  magnifierSize: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
+  magnifierSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   magnifierOffsetX: PropTypes.number,
   magnifierOffsetY: PropTypes.number,
   square: PropTypes.bool,

@@ -11,13 +11,21 @@ const MagnifierRenderer = props => {
     largeImageSrc,
     imageAlt,
     itemRef,
-    renderOverlay
+    renderOverlay,
+    cursorStyle,
+    cursorStyleActive
   } = props;
 
-  const isActive = itemDimensions.width > elementDimensions.width && active;
+  const legalSize = itemDimensions.width > elementDimensions.width;
+  const isActive = legalSize && active;
+  const finalCursorStyle = !legalSize
+    ? "default"
+    : active
+    ? cursorStyleActive
+    : cursorStyle;
 
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative", cursor: finalCursorStyle }}>
       <img
         style={{ width: "100%", display: "block" }}
         src={imageSrc}

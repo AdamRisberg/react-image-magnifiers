@@ -19,7 +19,9 @@ const PictureInPictureRenderer = props => {
     previewOpacity,
     previewOverlayOpacity,
     previewOverlayBoxOpacity,
-    renderOverlay
+    renderOverlay,
+    cursorStyle,
+    cursorStyleActive
   } = props;
 
   const sizeMult = 100 / previewSizePercentage;
@@ -28,23 +30,22 @@ const PictureInPictureRenderer = props => {
   let containerLeft = 0;
   let containerWidth = 0;
 
-  if(containerRef.current) {
+  if (containerRef.current) {
     containerWidth = containerRef.current.getBoundingClientRect().width;
 
-    if(previewVerticalPos === "bottom") {
+    if (previewVerticalPos === "bottom") {
       containerTop = elementDimensions.height * (sizeMult - 1);
       containerRef.current.style.paddingTop = `${containerTop}px`;
     } else {
-      containerRef.current.style.paddingBottom = `${
-        elementDimensions.height * (sizeMult - 1)
-      }px`;
+      containerRef.current.style.paddingBottom = `${elementDimensions.height *
+        (sizeMult - 1)}px`;
     }
 
-    if(containerRef.current.style.textAlign === "right") {
+    if (containerRef.current.style.textAlign === "right") {
       containerLeft = elementDimensions.width * (sizeMult - 1);
     }
   }
-  
+
   const smallImageSize = {
     width: elementDimensions.width,
     height: elementDimensions.height
@@ -52,14 +53,18 @@ const PictureInPictureRenderer = props => {
 
   const previewSize = {
     width: Math.floor(
-      smallImageSize.width * (smallImageSize.width / itemDimensions.width) * sizeMult
+      smallImageSize.width *
+        (smallImageSize.width / itemDimensions.width) *
+        sizeMult
     ),
     height: Math.floor(
-      smallImageSize.height * (smallImageSize.height / itemDimensions.height) * sizeMult
+      smallImageSize.height *
+        (smallImageSize.height / itemDimensions.height) *
+        sizeMult
     )
   };
 
-  if(isNaN(previewSize.width)) {
+  if (isNaN(previewSize.width)) {
     previewSize.width = 0;
     previewSize.height = 0;
   }
@@ -116,10 +121,23 @@ const PictureInPictureRenderer = props => {
   previewSize.top = Math.floor(itemPositionAdj.y - previewOffset.y) || 0;
   previewSize.bottom = Math.floor(itemPositionAdj.y + previewOffset.y) || 0;
 
+  const legalSize = previewSize.width < smallImageSize.width;
+  const finalCursorStyle = active ? cursorStyleActive : cursorStyle;
+
   return (
-    <div style={{ position: "relative" }}>
+    <div
+      style={{
+        position: "relative",
+        cursor: legalSize ? finalCursorStyle : "default"
+      }}
+    >
       <img
-        style={{ width: "100%", display: "block", opacity: previewOpacity }}
+        style={{
+          width: "100%",
+          display: "block",
+          opacity: previewOpacity,
+          visibility: legalSize ? "visible" : "hidden"
+        }}
         src={imageSrc}
         alt={imageAlt}
         onLoad={props.onLoadRefresh}
@@ -132,7 +150,7 @@ const PictureInPictureRenderer = props => {
             true
           ),
           width: containerWidth + "px",
-          height: (elementDimensions.height * sizeMult) + "px",
+          height: elementDimensions.height * sizeMult + "px",
           position: "absolute",
           left: -containerLeft,
           top: -containerTop
@@ -141,11 +159,20 @@ const PictureInPictureRenderer = props => {
         <img
           style={{
             ...styles.getLargeImageStyle(position.x, position.y, true),
+            visibility: legalSize ? "visible" : "hidden",
             zIndex: "-1"
           }}
           src={largeImageSrc || imageSrc}
           alt={imageAlt}
           ref={itemRef}
+        />
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          style={{
+            display: legalSize ? "none" : "block",
+            width: "100%"
+          }}
         />
         {renderOverlay ? renderOverlay(active) : null}
       </div>
@@ -160,7 +187,7 @@ const PictureInPictureRenderer = props => {
         imageHeight={smallImageSize.height}
         overlayOpacity={previewOverlayOpacity}
         overlayBoxOpacity={previewOverlayBoxOpacity}
-        active={true}
+        active={legalSize}
       />
     </div>
   );

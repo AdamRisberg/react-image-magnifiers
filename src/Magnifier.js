@@ -22,7 +22,8 @@ const Magnifier = props => {
     interactionSettings
   } = props;
 
-  const finalActiveCursorStyle = cursorStyleActive || dragToMove ? "move" : "zoom-out";
+  const finalActiveCursorStyle =
+    cursorStyleActive || dragToMove ? "move" : "zoom-out";
 
   return (
     <ReactInputPosition
@@ -34,8 +35,6 @@ const Magnifier = props => {
       centerItemOnActivatePos={dragToMove}
       alignItemOnActivePos={!dragToMove}
       itemPositionLimitBySize
-      cursorStyle={cursorStyle}
-      cursorStyleActive={finalActiveCursorStyle}
       {...interactionSettings}
     >
       <MagnifierRenderer
@@ -43,6 +42,8 @@ const Magnifier = props => {
         largeImageSrc={largeImageSrc}
         imageAlt={imageAlt}
         renderOverlay={renderOverlay}
+        cursorStyle={cursorStyle}
+        cursorStyleActive={finalActiveCursorStyle}
       />
     </ReactInputPosition>
   );

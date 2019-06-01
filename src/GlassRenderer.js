@@ -20,10 +20,12 @@ const GlassRenderer = props => {
     magnifierSize,
     magnifierOffsetX,
     magnifierOffsetY,
-    renderOverlay
+    renderOverlay,
+    cursorStyle
   } = props;
 
-  const isActive = itemDimensions.width > elementDimensions.width && active;
+  const legalSize = itemDimensions.width > elementDimensions.width;
+  const isActive = legalSize && active;
 
   const magnifierSizeNum = utils.convertWidthToPx(
     magnifierSize,
@@ -49,7 +51,12 @@ const GlassRenderer = props => {
       <img
         src={imageSrc}
         alt={imageAlt}
-        style={{ width: "100%", display: "block", boxSizing: "border-box" }}
+        style={{
+          width: "100%",
+          display: "block",
+          boxSizing: "border-box",
+          cursor: legalSize ? cursorStyle : "default"
+        }}
       />
       <div
         style={{
@@ -58,7 +65,7 @@ const GlassRenderer = props => {
             magnifierSizeNum,
             true
           ),
-          visibility: !active ? "hidden" : "visible",
+          visibility: !isActive ? "hidden" : "visible",
           borderRadius,
           zIndex: "1",
           border: `${magnifierBorderSize}px solid ${magnifierBorderColor}`,

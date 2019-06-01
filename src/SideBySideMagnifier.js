@@ -30,7 +30,6 @@ const SideBySideMagnifier = props => {
       mouseActivationMethod={MOUSE_ACTIVATION.HOVER}
       trackItemPosition
       linkItemToActive
-      cursorStyle={cursorStyle}
     >
       <SideBySideRenderer
         imageSrc={imageSrc}
@@ -42,6 +41,7 @@ const SideBySideMagnifier = props => {
         transitionSpeed={transitionSpeed}
         transitionSpeedInPlace={transitionSpeedInPlace}
         renderOverlay={renderOverlay}
+        cursorStyle={cursorStyle}
       />
     </ReactInputPosition>
   );

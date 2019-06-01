@@ -14,8 +14,8 @@ class PictureInPictureMagnifier extends Component {
     largeImageSrc: PropTypes.string,
     imageAlt: PropTypes.string,
     previewSizePercentage: PropTypes.number,
-    previewHorizontalPos: PropTypes.oneOf([ "left", "right" ]),
-    previewVerticalPos: PropTypes.oneOf([ "top", "bottom" ]),
+    previewHorizontalPos: PropTypes.oneOf(["left", "right"]),
+    previewVerticalPos: PropTypes.oneOf(["top", "bottom"]),
     previewOpacity: PropTypes.number,
     previewOverlayOpacity: PropTypes.number,
     previewOverlayBoxOpacity: PropTypes.number,
@@ -89,8 +89,6 @@ class PictureInPictureMagnifier extends Component {
           itemPositionMaxY={-0.1}
           linkItemToActive
           centerItemOnLoad
-          cursorStyle={cursorStyle}
-          cursorStyleActive={cursorStyleActive || cursorStyle}
         >
           <PictureInPictureRenderer
             containerRef={this.containerRef}
@@ -103,11 +101,13 @@ class PictureInPictureMagnifier extends Component {
             largeImageSrc={largeImageSrc}
             imageAlt={imageAlt}
             renderOverlay={renderOverlay}
+            cursorStyle={cursorStyle}
+            cursorStyleActive={cursorStyleActive || cursorStyle}
           />
         </ReactInputPosition>
       </div>
     );
   }
-};
+}
 
 export default PictureInPictureMagnifier;

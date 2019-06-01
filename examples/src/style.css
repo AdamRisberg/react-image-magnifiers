@@ -46,7 +46,6 @@ p {
   position: relative;
 }
 
-
 /* HEADER */
 
 .header {
@@ -81,7 +80,6 @@ p {
   font-size: 1.8rem;
 }
 
-
 /* IMAGE EXAMPLE */
 
 .image-example {
@@ -94,13 +92,12 @@ p {
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: rgba(0,0,0,.7);
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 10px 15px;
   color: #fff;
   width: 100%;
   text-align: center;
 }
-
 
 /* IMAGE SAMPLE CODE */
 
@@ -110,7 +107,6 @@ p {
   border: 1px solid #ccc;
   overflow-x: scroll;
 }
-
 
 /* CONTROLS */
 
@@ -136,7 +132,7 @@ input {
 }
 
 .note {
-  font-size: .95rem;
+  font-size: 0.95rem;
   font-weight: 400;
   margin-top: 5px;
   font-style: italic;
@@ -161,8 +157,9 @@ input {
   margin-right: 10px;
 }
 
-.label-right { width: 50%; }
-
+.label-right {
+  width: 50%;
+}
 
 /* INPUT INFO */
 
@@ -186,8 +183,9 @@ input {
   margin-bottom: 0;
 }
 
-.color-active { background-color: #f2fff0 }
-
+.color-active {
+  background-color: #f2fff0;
+}
 
 /* EXAMPLE CONTAINER */
 
@@ -204,7 +202,6 @@ input {
   text-align: center;
   font-weight: 500;
 }
-
 
 /* IMAGE EXAMPLE RENDERER */
 
@@ -252,8 +249,6 @@ input {
     border-left: none;
     border-right: none;
   }
-
-
 }
 
 @media only screen and (max-width: 440px) {
