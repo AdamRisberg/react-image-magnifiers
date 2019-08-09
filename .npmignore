@@ -3,3 +3,6 @@ examples
 .babelrc
 .gitignore
 webpack.config.js
+.eslintrc.json
+coverage
+.circleci
