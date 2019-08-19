@@ -68,7 +68,7 @@ imageSrc is the only required prop.
 
 **className:** Passed to the className of the parent div.
 
-**renderOverlay:** Render prop for custom overlays. Component function will receive a single boolean prop representing the active state. Be sure to use absolute position on your content to avoid changing the size/layout of the magnifier component, which would interfere with the functionality. Default: null, Type: function.
+**renderOverlay:** Render prop for custom overlays. The render prop function will get called with a single boolean representing the active state. Be sure to use absolute position on your content to avoid changing the size/layout of the magnifier component, which would interfere with the functionality. Default: null, Type: function.
 
 ## Magnifier Props
 
