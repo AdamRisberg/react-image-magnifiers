@@ -24,7 +24,14 @@ function getZoomContainerStyle(width, height, inPlace) {
   };
 }
 
-function getOverlayCenterStyle(width, height, left, top, opacity, transitionSpeed) {
+function getOverlayCenterStyle(
+  width,
+  height,
+  left,
+  top,
+  opacity,
+  transitionSpeed
+) {
   return {
     position: "absolute",
     width: `${width}px`,
@@ -80,7 +87,7 @@ function getOverlayRightStyle(width, height, top, opacity, transitionSpeed) {
     backgroundColor: "#000",
     position: "absolute",
     boxSizing: "border-box",
-    top: top,
+    top: `${top}px`,
     right: 0,
     width: `${width}px`,
     height: `${height}px`,
