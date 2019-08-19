@@ -10,22 +10,18 @@ class MagnifierExample extends Component {
     dragToMove: true
   };
 
-  handleBoolChange = (key) => (e) => {
+  handleBoolChange = key => e => {
     const value = Boolean(e.target.value);
     this.setState(() => ({ [key]: value }));
   };
 
-  handleActivationChange = (key) => (e) => {
+  handleActivationChange = key => e => {
     const value = e.target.value;
     this.setState(() => ({ [key]: value }));
-  }
+  };
 
   render() {
-    const {
-      mouseActivation,
-      touchActivation,
-      dragToMove
-    } = this.state;
+    const { mouseActivation, touchActivation, dragToMove } = this.state;
 
     const { image } = this.props;
 

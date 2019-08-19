@@ -153,7 +153,8 @@ const PictureInPictureRenderer = props => {
           height: elementDimensions.height * sizeMult + "px",
           position: "absolute",
           left: -containerLeft,
-          top: -containerTop
+          top: -containerTop,
+          fontSize: "1rem"
         }}
       >
         <img

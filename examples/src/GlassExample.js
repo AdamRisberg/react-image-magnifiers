@@ -10,24 +10,24 @@ class GlassExample extends Component {
     magnifierBorderColor: "rgba(255, 255, 255, .5)",
     magnifierSize: "30%",
     square: false
-  }
+  };
 
-  handleSize = (e) => {
+  handleSize = e => {
     const value = e.target.value + "%";
     this.setState(() => ({ magnifierSize: value }));
   };
 
-  handleBorderSize = (e) => {
+  handleBorderSize = e => {
     const value = Number(e.target.value);
     this.setState(() => ({ magnifierBorderSize: value }));
   };
 
-  handleBoolChange = (key) => (e) => {
+  handleBoolChange = key => e => {
     const value = Boolean(e.target.value);
     this.setState(() => ({ [key]: value }));
   };
 
-  handleTextChange = (key) => (e) => {
+  handleTextChange = key => e => {
     const value = e.target.value;
     this.setState(() => ({ [key]: value }));
   };

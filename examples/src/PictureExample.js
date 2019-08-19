@@ -13,25 +13,28 @@ class PictureExample extends Component {
     show: true
   };
 
-  handlePosChange = (key) => (e) => {
+  handlePosChange = key => e => {
     const value = e.target.value;
     this.setState(() => ({ [key]: value, show: false }), this.show);
   };
 
-  handleShadowChange = (e) => {
+  handleShadowChange = e => {
     const value = Boolean(e.target.value);
     this.setState(() => ({ shadow: value }));
-  }
-
-  handleSizeChange = (e) => {
-    const value = Number(e.target.value);
-    this.setState(() => ({ previewSizePercentage: value, show: false }), this.show);
   };
 
-  handleOpacityChange = (e) => {
+  handleSizeChange = e => {
+    const value = Number(e.target.value);
+    this.setState(
+      () => ({ previewSizePercentage: value, show: false }),
+      this.show
+    );
+  };
+
+  handleOpacityChange = e => {
     const value = Number(e.target.value);
     this.setState(() => ({ previewOpacity: value }));
-  }
+  };
 
   show = () => {
     this.setState(() => ({ show: true }));
@@ -52,15 +55,17 @@ class PictureExample extends Component {
       <React.Fragment>
         <ExampleContainer title="Picture In Picture Magnifier">
           <div className="flex">
-            {this.state.show ? <PictureInPictureMagnifier
-              className="input-position"
-              imageSrc={image}
-              previewHorizontalPos={previewHorizontalPos}
-              previewVerticalPos={previewVerticalPos}
-              previewSizePercentage={previewSizePercentage}
-              previewOpacity={previewOpacity}
-              shadow={shadow}
-            /> : null }
+            {this.state.show ? (
+              <PictureInPictureMagnifier
+                className="input-position"
+                imageSrc={image}
+                previewHorizontalPos={previewHorizontalPos}
+                previewVerticalPos={previewVerticalPos}
+                previewSizePercentage={previewSizePercentage}
+                previewOpacity={previewOpacity}
+                shadow={shadow}
+              />
+            ) : null}
             <PictureExampleControls
               handlePosChange={this.handlePosChange}
               handleShadowChange={this.handleShadowChange}
