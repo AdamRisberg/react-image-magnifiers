@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.5 (August 20th, 2019)
+
+- Fixed "window is not defined" error in SideBySideRenderer when used in SSR
+- Font size is no longer zero when using PictureInPicture's renderOverlay render prop
+- Added tests for styles and utils helpers
+
 ## 1.0.4 (June 1st, 2019)
 
 - Improved the handling of images that are too small for the magnifying functionality. Some components used to behave erratically in this situation. Now, if an image is less than or equal to the size of the container, the magnifier component will simply size the image to the container and hide/disable the controls.
