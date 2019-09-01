@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.6 (September 1st, 2019)
+
+- Updated react-input-position@1.1.7
+- Add styling to ensure large image width is set to auto
+
 ## 1.0.5 (August 20th, 2019)
 
 - Fixed "window is not defined" error in SideBySideRenderer when used in SSR
