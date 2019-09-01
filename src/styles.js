@@ -7,7 +7,8 @@ function getLargeImageStyle(positionX, positionY, active) {
     left: 0,
     transform: `translate(${positionX}px, ${positionY}px)`,
     zIndex: "1",
-    visibility: !active ? "hidden" : "visible"
+    visibility: !active ? "hidden" : "visible",
+    width: "auto"
   };
 }
 
