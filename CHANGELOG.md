@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.7 (September 1st, 2019)
+
+- Fixed remaining "window is not defined" error in SideBySideRenderer when used in SSR. All components now support SSR.
+
 ## 1.0.6 (September 1st, 2019)
 
 - Updated react-input-position@1.1.7
