@@ -23,10 +23,12 @@ const SideBySideRenderer = props => {
     cursorStyle
   } = props;
 
-  const inPlace =
-    alwaysInPlace ||
-    elementDimensions.width * 2 + elementOffset.left >
-      (window && window.innerWidth);
+  let inPlace = false;
+  try {
+    inPlace =
+      alwaysInPlace ||
+      elementDimensions.width * 2 + elementOffset.left > window.innerWidth;
+  } catch (e) {}
   const legalSize = itemDimensions.width > elementDimensions.width;
   const isActive = legalSize && active;
   const transSpeed = inPlace ? transitionSpeedInPlace : transitionSpeed;
