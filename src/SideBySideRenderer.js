@@ -20,7 +20,9 @@ const SideBySideRenderer = props => {
     transitionSpeed,
     transitionSpeedInPlace,
     renderOverlay,
-    cursorStyle
+    cursorStyle,
+    onImageLoad,
+    onLargeImageLoad
   } = props;
 
   let inPlace = false;
@@ -114,6 +116,7 @@ const SideBySideRenderer = props => {
         }}
         src={imageSrc}
         alt={imageAlt}
+        onLoad={onImageLoad}
       />
       <div
         style={{
@@ -131,6 +134,7 @@ const SideBySideRenderer = props => {
           src={largeImageSrc || imageSrc}
           alt={imageAlt}
           ref={itemRef}
+          onLoad={onLargeImageLoad}
         />
       </div>
       <ImagePreviewOverlay

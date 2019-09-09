@@ -13,7 +13,9 @@ const MagnifierRenderer = props => {
     itemRef,
     renderOverlay,
     cursorStyle,
-    cursorStyleActive
+    cursorStyleActive,
+    onImageLoad,
+    onLargeImageLoad
   } = props;
 
   const legalSize = itemDimensions.width > elementDimensions.width;
@@ -30,6 +32,7 @@ const MagnifierRenderer = props => {
         style={{ width: "100%", display: "block" }}
         src={imageSrc}
         alt={imageAlt}
+        onLoad={onImageLoad}
       />
       <div
         style={styles.getZoomContainerStyle(
@@ -47,6 +50,7 @@ const MagnifierRenderer = props => {
           src={largeImageSrc || imageSrc}
           alt={imageAlt}
           ref={itemRef}
+          onLoad={onLargeImageLoad}
         />
       </div>
       {renderOverlay ? renderOverlay(active) : null}

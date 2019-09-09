@@ -22,7 +22,9 @@ const GlassMagnifier = props => {
     renderOverlay,
     allowOverflow,
     style,
-    className
+    className,
+    onImageLoad,
+    onLargeImageLoad
   } = props;
 
   return (
@@ -52,6 +54,8 @@ const GlassMagnifier = props => {
         magnifierOffsetY={magnifierOffsetY}
         renderOverlay={renderOverlay}
         cursorStyle={cursorStyle}
+        onImageLoad={onImageLoad}
+        onLargeImageLoad={onLargeImageLoad}
       />
     </ReactInputPosition>
   );
@@ -72,7 +76,9 @@ GlassMagnifier.propTypes = {
   cursorStyle: PropTypes.string,
   renderOverlay: PropTypes.func,
   className: PropTypes.string,
-  style: PropTypes.object
+  style: PropTypes.object,
+  onImageLoad: PropTypes.func,
+  onLargeImageLoad: PropTypes.func
 };
 
 GlassMagnifier.defaultProps = {
@@ -87,7 +93,9 @@ GlassMagnifier.defaultProps = {
   magnifierOffsetX: 0,
   magnifierOffsetY: 0,
   square: false,
-  cursorStyle: "none"
+  cursorStyle: "none",
+  onImageLoad: () => {},
+  onLargeImageLoad: () => {}
 };
 
 export default GlassMagnifier;

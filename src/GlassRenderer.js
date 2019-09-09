@@ -21,7 +21,9 @@ const GlassRenderer = props => {
     magnifierOffsetX,
     magnifierOffsetY,
     renderOverlay,
-    cursorStyle
+    cursorStyle,
+    onImageLoad,
+    onLargeImageLoad
   } = props;
 
   const legalSize = itemDimensions.width > elementDimensions.width;
@@ -57,6 +59,7 @@ const GlassRenderer = props => {
           boxSizing: "border-box",
           cursor: legalSize ? cursorStyle : "default"
         }}
+        onLoad={onImageLoad}
       />
       <div
         style={{
@@ -79,6 +82,7 @@ const GlassRenderer = props => {
           src={largeImageSrc || imageSrc}
           alt={imageAlt}
           style={styles.getLargeImageStyle(position.x, position.y, isActive)}
+          onLoad={onLargeImageLoad}
         />
       </div>
       {renderOverlay ? renderOverlay(active) : null}

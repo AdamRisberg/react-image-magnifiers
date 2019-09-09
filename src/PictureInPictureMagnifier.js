@@ -25,7 +25,9 @@ class PictureInPictureMagnifier extends Component {
     shadowColor: PropTypes.string,
     renderOverlay: PropTypes.func,
     className: PropTypes.string,
-    style: PropTypes.object
+    style: PropTypes.object,
+    onImageLoad: PropTypes.func,
+    onLargeImageLoad: PropTypes.func
   };
 
   static defaultProps = {
@@ -40,7 +42,9 @@ class PictureInPictureMagnifier extends Component {
     previewOverlayBoxOpacity: 0.8,
     cursorStyle: "crosshair",
     cursorStyleActive: "",
-    shadowColor: "rgba(0,0,0,.4)"
+    shadowColor: "rgba(0,0,0,.4)",
+    onImageLoad: () => {},
+    onLargeImageLoad: () => {}
   };
 
   render() {
@@ -60,7 +64,9 @@ class PictureInPictureMagnifier extends Component {
       shadowColor,
       renderOverlay,
       className,
-      style
+      style,
+      onImageLoad,
+      onLargeImageLoad
     } = this.props;
 
     return (
@@ -103,6 +109,8 @@ class PictureInPictureMagnifier extends Component {
             renderOverlay={renderOverlay}
             cursorStyle={cursorStyle}
             cursorStyleActive={cursorStyleActive || cursorStyle}
+            onImageLoad={onImageLoad}
+            onLargeImageLoad={onLargeImageLoad}
           />
         </ReactInputPosition>
       </div>

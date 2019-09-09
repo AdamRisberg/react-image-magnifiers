@@ -21,7 +21,10 @@ const PictureInPictureRenderer = props => {
     previewOverlayBoxOpacity,
     renderOverlay,
     cursorStyle,
-    cursorStyleActive
+    cursorStyleActive,
+    onLoadRefresh,
+    onImageLoad,
+    onLargeImageLoad
   } = props;
 
   const sizeMult = 100 / previewSizePercentage;
@@ -140,7 +143,10 @@ const PictureInPictureRenderer = props => {
         }}
         src={imageSrc}
         alt={imageAlt}
-        onLoad={props.onLoadRefresh}
+        onLoad={e => {
+          onLoadRefresh();
+          onImageLoad(e);
+        }}
       />
       <div
         style={{
@@ -166,6 +172,7 @@ const PictureInPictureRenderer = props => {
           src={largeImageSrc || imageSrc}
           alt={imageAlt}
           ref={itemRef}
+          onLoad={onLargeImageLoad}
         />
         <img
           src={imageSrc}

@@ -19,7 +19,9 @@ const Magnifier = props => {
     style,
     mouseActivation,
     touchActivation,
-    interactionSettings
+    interactionSettings,
+    onImageLoad,
+    onLargeImageLoad
   } = props;
 
   const finalActiveCursorStyle =
@@ -44,6 +46,8 @@ const Magnifier = props => {
         renderOverlay={renderOverlay}
         cursorStyle={cursorStyle}
         cursorStyleActive={finalActiveCursorStyle}
+        onImageLoad={onImageLoad}
+        onLargeImageLoad={onLargeImageLoad}
       />
     </ReactInputPosition>
   );
@@ -67,7 +71,9 @@ Magnifier.propTypes = {
     longTouchDurationInMs: PropTypes.number,
     longTouchMoveLimit: PropTypes.number,
     clickMoveLimit: PropTypes.number
-  })
+  }),
+  onImageLoad: PropTypes.func,
+  onLargeImageLoad: PropTypes.func
 };
 
 Magnifier.defaultProps = {
@@ -79,7 +85,9 @@ Magnifier.defaultProps = {
   dragToMove: true,
   mouseActivation: MOUSE_ACTIVATION.CLICK,
   touchActivation: TOUCH_ACTIVATION.TAP,
-  interactionSettings: {}
+  interactionSettings: {},
+  onImageLoad: () => {},
+  onLargeImageLoad: () => {}
 };
 
 export default Magnifier;
