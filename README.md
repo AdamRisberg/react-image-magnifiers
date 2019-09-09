@@ -139,6 +139,10 @@ imageSrc is the only required prop.
 
 **transitionSpeedInPlace:** Speed, in seconds, of the fade transition while zooming in/out while in place mode is active. Type: number, Default: 0.4.
 
+**onSmallImageLoad:** onLoad function for small image
+
+**onLargeImageLoad:** onLoad function for large image
+
 ## Example Project
 
 ```sh
