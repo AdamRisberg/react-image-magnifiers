@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0 (September 9th, 2019)
+
+- Added onImageLoad and onLargeImageLoad props to all magnifier components.
+
 ## 1.0.7 (September 1st, 2019)
 
 - Fixed remaining "window is not defined" error in SideBySideRenderer when used in SSR. All components now support SSR.

@@ -71,6 +71,10 @@ imageSrc is the only required prop.
 
 **renderOverlay:** Render prop for custom overlays. The render prop function will get called with a single boolean representing the active state. Be sure to use absolute position on your content to avoid changing the size/layout of the magnifier component, which would interfere with the functionality. Default: null, Type: function.
 
+**onImageLoad:** Passed to the onload of the small image (not zoomed).
+
+**onLargeImageLoad:** Passed to the onload of the large image (zoomed).
+
 ## Magnifier Props
 
 **mouseActivation:** Sets the mouse method for zooming in/out. Accepts: "click" or "doubleClick". Can also import the MOUSE_ACTIVATION constants to assist. Type: string, Default: "click".
