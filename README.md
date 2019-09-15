@@ -95,7 +95,7 @@ imageSrc is the only required prop.
 
 ## GlassMagnifier Props
 
-**allowOverFlow:** Allows the magnifying glass to spill out over the edges of the component. Type: boolean, Default: true.
+**allowOverflow:** Allows the magnifying glass to spill out over the edges of the component. Type: boolean, Default: true.
 
 **magnifierBorderColor:** Color of the magnifying glass border. Accepts any valid CSS color. Type: string, Default: "rgba(255,255,255,.5)".
 
