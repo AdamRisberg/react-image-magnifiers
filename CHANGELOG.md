@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2 (September 27th, 2019)
+
+- Updated react-input-position to improve touch interactions.
+
 ## 1.1.1 (September 14th, 2019)
 
 - Fixed typo in README.
