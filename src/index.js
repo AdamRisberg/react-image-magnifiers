@@ -15,4 +15,9 @@ export const TOUCH_ACTIVATION = {
 export { default as SideBySideMagnifier } from "./SideBySideMagnifier";
 export { default as Magnifier } from "./Magnifier";
 export { default as GlassMagnifier } from "./GlassMagnifier";
-export { default as PictureInPictureMagnifier } from "./PictureInPictureMagnifier";
+export {
+  default as PictureInPictureMagnifier
+} from "./PictureInPictureMagnifier";
+export { default as MagnifierContainer } from "./MagnifierContainer";
+export { default as MagnifierPreview } from "./MagnifierPreview";
+export { default as MagnifierZoom } from "./MagnifierZoom";

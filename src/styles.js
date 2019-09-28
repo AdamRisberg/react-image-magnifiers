@@ -116,6 +116,16 @@ function getOverlayBottomStyle(width, height, top, opacity, transitionSpeed) {
   };
 }
 
+function getMagnifierZoomStyle(width, height, active, transitionSpeed) {
+  return {
+    width: width,
+    height: height,
+    position: "relative",
+    opacity: active ? 1 : 0,
+    transition: `opacity ${transitionSpeed}s ease`
+  };
+}
+
 export default {
   getLargeImageStyle,
   getZoomContainerStyle,
@@ -123,5 +133,6 @@ export default {
   getOverlayTopStyle,
   getOverlayLeftStyle,
   getOverlayRightStyle,
-  getOverlayBottomStyle
+  getOverlayBottomStyle,
+  getMagnifierZoomStyle
 };
