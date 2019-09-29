@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 (September 29th, 2019)
+
+- Added MagnifierContainer, MagnifierPreview, and MagnifierZoom components for creating more advanced magnifier layouts.
+
 ## 1.1.2 (September 27th, 2019)
 
 - Updated react-input-position to improve touch interactions.
