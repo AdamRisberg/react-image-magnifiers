@@ -22,6 +22,7 @@ class MagnifierContainer extends Component {
     if (!this.zoomContainerRef.current) {
       return { width: 0, height: 0 };
     }
+
     const {
       width,
       height
