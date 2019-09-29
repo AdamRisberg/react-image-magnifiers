@@ -1,6 +1,6 @@
 {
   "name": "react-image-magnifiers",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "A collection of responsive, image magnifying React components for mouse and touch.",
   "keywords": [
     "react",
@@ -37,8 +37,8 @@
     "publish-demo": "npm run build && npm run deploy"
   },
   "peerDependencies": {
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
