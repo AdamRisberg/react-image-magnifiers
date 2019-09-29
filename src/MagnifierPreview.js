@@ -5,6 +5,7 @@ import ReactInputPosition, {
   TOUCH_ACTIVATION
 } from "react-input-position";
 import MagnifierPreviewRenderer from "./MagnifierPreviewRenderer";
+import { MagnifierContext } from "./MagnifierContainer";
 
 function MagnifierPreview(props) {
   const {
@@ -12,11 +13,6 @@ function MagnifierPreview(props) {
     imageAlt,
     className,
     style,
-    stateOverride,
-    onUpdate,
-    zoomImageDimensions,
-    previewSize,
-    smallImageSize,
     cursorStyle,
     onImageLoad,
     renderOverlay,
@@ -24,6 +20,14 @@ function MagnifierPreview(props) {
     overlayBoxOpacity,
     transitionSpeed
   } = props;
+
+  const {
+    stateOverride,
+    onUpdate,
+    zoomImageDimensions,
+    previewSize,
+    smallImageSize
+  } = React.useContext(MagnifierContext);
 
   return (
     <ReactInputPosition

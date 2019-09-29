@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./styles";
+import { MagnifierContext } from "./MagnifierContainer";
 
 function MagnifierZoom(props) {
   const {
@@ -8,27 +9,18 @@ function MagnifierZoom(props) {
     imageAlt,
     className,
     style,
-    elementDimensions,
-    active,
-    zoomRef,
-    onZoomImageLoad,
-    position,
     onImageLoad,
-    transitionSpeed,
-    zoomImageDimensions,
-    zoomContainerDimensions
+    transitionSpeed
   } = props;
 
-  const containerStyle = {
-    ...styles.getMagnifierZoomStyle(
-      `${elementDimensions.width}px`,
-      `${elementDimensions.height}px`,
-      true || active,
-      transitionSpeed
-    ),
-    ...style,
-    overflow: "hidden"
-  };
+  const {
+    zoomImageDimensions,
+    zoomContainerDimensions,
+    position,
+    onZoomImageLoad,
+    zoomRef,
+    isActive
+  } = React.useContext(MagnifierContext);
 
   let invalidVertical =
     zoomImageDimensions.height <= zoomContainerDimensions.height;
@@ -36,7 +28,15 @@ function MagnifierZoom(props) {
     zoomImageDimensions.width <= zoomContainerDimensions.width;
 
   return (
-    <div className={className} style={containerStyle} ref={zoomRef}>
+    <div
+      className={className}
+      style={{
+        ...styles.getMagnifierZoomStyle(isActive, transitionSpeed),
+        ...style,
+        overflow: "hidden"
+      }}
+      ref={zoomRef}
+    >
       <img
         style={{
           ...styles.getLargeImageStyle(
@@ -66,6 +66,7 @@ MagnifierZoom.propTypes = {
 };
 
 MagnifierZoom.defaultProps = {
+  style: {},
   imageSrc: "",
   imageAlt: "",
   onImageLoad: () => {},

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { defaultState } from "react-input-position";
 import utils from "./utils";
-import MagnifierZoom from "./MagnifierZoom";
-import MagnifierPreview from "./MagnifierPreview";
+
+export const MagnifierContext = React.createContext();
 
 class MagnifierContainer extends Component {
   state = {
@@ -18,30 +18,16 @@ class MagnifierContainer extends Component {
     style: PropTypes.object
   };
 
-  componentDidMount() {
-    this.getZoomContainerDimensions();
-    window.addEventListener("resize", this.getZoomContainerDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.getZoomContainerDimensions);
-  }
-
   getZoomContainerDimensions = () => {
     if (!this.zoomContainerRef.current) {
-      return;
+      return { width: 0, height: 0 };
     }
     const {
       width,
       height
     } = this.zoomContainerRef.current.getBoundingClientRect();
 
-    this.setState({
-      zoomContainerDimensions: {
-        width,
-        height
-      }
-    });
+    return { width, height };
   };
 
   onUpdate = changes => {
@@ -59,33 +45,22 @@ class MagnifierContainer extends Component {
     });
   };
 
-  decorateChild(child, positionProps) {
-    if (child.type === MagnifierPreview) {
-      return React.cloneElement(child, {
-        stateOverride: this.state.inputPositionState,
-        onUpdate: this.onUpdate,
-        zoomImageDimensions: this.state.zoomImageDimensions,
-        ...positionProps
-      });
-    }
-
-    if (child.type === MagnifierZoom) {
-      return React.cloneElement(child, {
-        ...this.state.inputPositionState,
-        zoomImageDimensions: this.state.zoomImageDimensions,
-        zoomContainerDimensions: this.state.zoomContainerDimensions,
-        zoomRef: this.zoomContainerRef,
-        onZoomImageLoad: this.onZoomImageLoad,
-        ...positionProps
-      });
-    }
-
-    return child;
+  getContextValue() {
+    return {
+      stateOverride: this.state.inputPositionState,
+      isActive: this.state.inputPositionState.active,
+      onUpdate: this.onUpdate,
+      zoomImageDimensions: this.state.zoomImageDimensions,
+      zoomRef: this.zoomContainerRef,
+      onZoomImageLoad: this.onZoomImageLoad,
+      ...this.calculatePositions()
+    };
   }
 
   calculatePositions() {
     const { elementDimensions, itemPosition } = this.state.inputPositionState;
-    const { zoomImageDimensions, zoomContainerDimensions } = this.state;
+    const { zoomImageDimensions } = this.state;
+    const zoomContainerDimensions = this.getZoomContainerDimensions();
 
     const smallImageSize = {
       width: elementDimensions.width,
@@ -158,19 +133,19 @@ class MagnifierContainer extends Component {
     return {
       position,
       smallImageSize,
-      previewSize
+      previewSize,
+      zoomContainerDimensions
     };
   }
 
   render() {
-    const positionProps = this.calculatePositions();
     const { style, className } = this.props;
 
     return (
       <div style={style} className={className}>
-        {React.Children.map(this.props.children, child =>
-          this.decorateChild(child, positionProps)
-        )}
+        <MagnifierContext.Provider value={this.getContextValue()}>
+          {this.props.children}
+        </MagnifierContext.Provider>
       </div>
     );
   }

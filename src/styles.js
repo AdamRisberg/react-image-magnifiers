@@ -116,10 +116,8 @@ function getOverlayBottomStyle(width, height, top, opacity, transitionSpeed) {
   };
 }
 
-function getMagnifierZoomStyle(width, height, active, transitionSpeed) {
+function getMagnifierZoomStyle(active, transitionSpeed) {
   return {
-    width: width,
-    height: height,
     position: "relative",
     opacity: active ? 1 : 0,
     transition: `opacity ${transitionSpeed}s ease`
