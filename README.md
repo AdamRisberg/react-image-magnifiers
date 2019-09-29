@@ -2,16 +2,35 @@
 
 A collection of responsive, image magnifying React components for mouse and touch. Useful for product images in ecommerce sites, image galleries, stock photos, etc.
 
-Included components:
+[![npm version](https://img.shields.io/npm/v/react-image-magnifiers.svg?style=flat)](https://npmjs.org/package/react-image-magnifiers "View this project on npm")
+[![npm downloads](https://img.shields.io/npm/dm/react-image-magnifiers.svg?style=flat-square)](https://www.npmjs.com/package/react-image-magnifiers)
+[![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+
+## Magnifier components:
 
 - Magnifier: Can be zoomed in/out by click, double click, tap, double tap, or long touch. Click/touch and drag to move around the image while zoomed in. Alternate mode moves around the image via hover or touch/slide.
 - GlassMagnifier: Simulates a magnifying glass. Includes offset options for use with touch (so the user's finger doesn't block the magnifying glass).
 - SideBySideMagnifier: Displays a zoomed in view of the image on hover/touch alongside the small version. Automatically zooms in place when there's not enough room to display alongside.
 - PictureInPictureMagnifier: Displays a small preview image with a zoom area preview box in the corner of the component. User can move the preview box around to change the portion of the enlarged image to display.
 
-[![npm version](https://img.shields.io/npm/v/react-image-magnifiers.svg?style=flat)](https://npmjs.org/package/react-image-magnifiers "View this project on npm")
-[![npm downloads](https://img.shields.io/npm/dm/react-image-magnifiers.svg?style=flat-square)](https://www.npmjs.com/package/react-image-magnifiers)
-[![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+## Custom layout components
+
+The following components can be used together to create more advanced magnifier layouts. These components can be styled to be any size/shape. The MagnifierPreview and MagnifierZoom must be within the same MagnifierContainer, but do not need to be siblings in the hierarchy of children. For example...
+
+```JSX
+<MagnifierContainer>
+  <div className="example-class">
+    <MagnifierPreview imageSrc="./image.jpg" />
+  </div>
+    <MagnifierZoom style={{ height: "400px" }} imageSrc="./image.jpg">
+</MagnifierContainer>
+```
+
+_Note: The MagnifierZoom component will initially have zero height. Its only content uses absolute positioning. Therefore, height must be set with styling (className and/or style props, flex parent, etc)._
+
+- MagnifierContainer: Links the MagnifierPreview and MagnifierZoom components together.
+- MagnifierPreview: Displays the interactive preview image.
+- MagnifierZoom: Displays the zoomed view of the image.
 
 ## Demo
 
@@ -55,7 +74,9 @@ Note: The zoom level of all components depends on the rendered size difference b
 
 ## Common Props
 
-imageSrc is the only required prop.
+_Excluding MagnifierContainer, MagnifierZoom, & MagnifierPreview._
+
+_imageSrc is the only required prop._
 
 **cursorStyle:** Accepts any valid CSS cursor. Default: Magnifier - "zoom-in", GlassMagnifier - "none", SideBySideMagnifier - "crosshair", PictureInPicture - "crosshair". Type: string.
 
@@ -142,6 +163,48 @@ imageSrc is the only required prop.
 **transitionSpeed:** Speed, in seconds, of the fade transition while zooming in/out. Type: number, Default: 0.4.
 
 **transitionSpeedInPlace:** Speed, in seconds, of the fade transition while zooming in/out while in place mode is active. Type: number, Default: 0.4.
+
+## MagnifierContainer Props
+
+**style:** Passed to the style of the parent div.
+
+**className:** Passed to the className of the parent div.
+
+## MagnifierPreview Props
+
+**imageSrc:** Passed to the src of the image.
+
+**imageAlt:** Passed to the alt of the image.
+
+**style:** Passed to the style of the parent div.
+
+**className:** Passed to the className of the parent div.
+
+**onImageLoad:** Passed to the onload of the image.
+
+**cursorStyle:** Accepts any valid CSS cursor. Type: string, Default: "crosshair".
+
+**transitionSpeed:** Speed, in seconds, of the fade transition while zooming in/out. Type: number, Default: 0.4.
+
+**overlayBoxOpacity:** Sets the opacity of the white box (representing the zoom area) within the small preview image. Accepts a number between 0 and 1. Type: number, default: 0.8.
+
+**overlayOpacity:** Sets the opacity of the dark overlay (representing the area not shown during zoom). Accepts a number between 0 and 1. Type: number, Default: 0.5.
+
+**renderOverlay:** Render prop for custom overlays. The render prop function will get called with a single boolean representing the active state. Be sure to use absolute position on your content to avoid changing the size/layout of the magnifier component, which would interfere with the functionality. Default: null, Type: function.
+
+## MagnifierZoom Props
+
+**imageSrc:** Passed to the src of the image.
+
+**imageAlt:** Passed to the alt of the image.
+
+**style:** Passed to the style of the parent div.
+
+**className:** Passed to the className of the parent div.
+
+**onImageLoad:** Passed to the onload of the small image (not zoomed).
+
+**transitionSpeed:** Speed, in seconds, of the fade transition while zooming in/out. Type: number, Default: 0.4.
 
 ## Example Project
 
