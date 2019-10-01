@@ -22,7 +22,7 @@ class SideExample extends Component {
   render() {
     const { alwaysInPlace, overlayOpacity } = this.state;
 
-    const { image } = this.props;
+    const { image, largeImage } = this.props;
 
     return (
       <React.Fragment>
@@ -31,6 +31,7 @@ class SideExample extends Component {
             <SideBySideMagnifier
               className="input-position"
               imageSrc={image}
+              largeImageSrc={largeImage}
               alwaysInPlace={alwaysInPlace}
               overlayOpacity={overlayOpacity}
             />

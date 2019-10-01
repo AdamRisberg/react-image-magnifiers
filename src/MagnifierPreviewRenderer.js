@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "./Image";
 import ImagePreviewOverlay from "./ImagePreviewOverlay";
 
 function MagnifierPreviewRenderer(props) {
@@ -17,11 +18,11 @@ function MagnifierPreviewRenderer(props) {
 
   return (
     <div style={{ position: "relative" }}>
-      <img
-        onLoad={onImageLoad}
+      <Image
         style={{ display: "block", width: "100%" }}
         src={image}
         alt={alt}
+        onImageLoad={onImageLoad}
       />
       <ImagePreviewOverlay
         previewWidth={previewSize.width}

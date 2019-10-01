@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import utils from "./utils";
 import styles from "./styles";
 import { MagnifierContext } from "./MagnifierContainer";
+import Image from "./Image";
 
 function MagnifierZoom(props) {
   const {
@@ -37,7 +39,7 @@ function MagnifierZoom(props) {
       }}
       ref={zoomRef}
     >
-      <img
+      <Image
         style={{
           ...styles.getLargeImageStyle(
             invalidHorizontal ? 0 : position.x,
@@ -45,12 +47,12 @@ function MagnifierZoom(props) {
             true
           )
         }}
-        onLoad={e => {
+        src={imageSrc}
+        alt={imageAlt}
+        onImageLoad={e => {
           onZoomImageLoad(e);
           onImageLoad(e);
         }}
-        src={imageSrc}
-        alt={imageAlt}
       />
     </div>
   );
@@ -59,7 +61,10 @@ function MagnifierZoom(props) {
 MagnifierZoom.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
-  imageSrc: PropTypes.string,
+  imageSrc: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
   imageAlt: PropTypes.string,
   onImageLoad: PropTypes.func,
   transitionSpeed: PropTypes.number
@@ -69,7 +74,7 @@ MagnifierZoom.defaultProps = {
   style: {},
   imageSrc: "",
   imageAlt: "",
-  onImageLoad: () => {},
+  onImageLoad: utils.noop,
   transitionSpeed: 0.4
 };
 

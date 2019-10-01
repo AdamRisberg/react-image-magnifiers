@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import utils from "./utils";
 import ReactInputPosition, {
   TOUCH_ACTIVATION,
   MOUSE_ACTIVATION
@@ -52,8 +53,14 @@ const SideBySideMagnifier = props => {
 };
 
 SideBySideMagnifier.propTypes = {
-  imageSrc: PropTypes.string,
-  largeImageSrc: PropTypes.string,
+  imageSrc: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
+  largeImageSrc: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
   imageAlt: PropTypes.string,
   overlayOpacity: PropTypes.number,
   overlayBoxOpacity: PropTypes.number,
@@ -77,8 +84,8 @@ SideBySideMagnifier.defaultProps = {
   cursorStyle: "crosshair",
   transitionSpeed: 0.4,
   transitionSpeedInPlace: 0.4,
-  onImageLoad: () => {},
-  onLargeImageLoad: () => {}
+  onImageLoad: utils.noop,
+  onLargeImageLoad: utils.noop
 };
 
 export default SideBySideMagnifier;

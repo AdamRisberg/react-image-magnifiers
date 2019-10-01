@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import utils from "./utils";
 import ReactInputPosition, {
   TOUCH_ACTIVATION,
   MOUSE_ACTIVATION
@@ -21,7 +22,9 @@ const Magnifier = props => {
     touchActivation,
     interactionSettings,
     onImageLoad,
-    onLargeImageLoad
+    onLargeImageLoad,
+    onImageError,
+    onLargeImageError
   } = props;
 
   const finalActiveCursorStyle =
@@ -48,14 +51,22 @@ const Magnifier = props => {
         cursorStyleActive={finalActiveCursorStyle}
         onImageLoad={onImageLoad}
         onLargeImageLoad={onLargeImageLoad}
+        onImageError={onImageError}
+        onLargeImageError={onLargeImageError}
       />
     </ReactInputPosition>
   );
 };
 
 Magnifier.propTypes = {
-  imageSrc: PropTypes.string,
-  largeImageSrc: PropTypes.string,
+  imageSrc: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
+  largeImageSrc: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
   imageAlt: PropTypes.string,
   cursorStyle: PropTypes.string,
   cursorStyleActive: PropTypes.string,
@@ -86,8 +97,8 @@ Magnifier.defaultProps = {
   mouseActivation: MOUSE_ACTIVATION.CLICK,
   touchActivation: TOUCH_ACTIVATION.TAP,
   interactionSettings: {},
-  onImageLoad: () => {},
-  onLargeImageLoad: () => {}
+  onImageLoad: utils.noop,
+  onLargeImageLoad: utils.noop
 };
 
 export default Magnifier;

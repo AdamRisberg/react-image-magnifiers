@@ -23,7 +23,7 @@ class MagnifierExample extends Component {
   render() {
     const { mouseActivation, touchActivation, dragToMove } = this.state;
 
-    const { image } = this.props;
+    const { image, largeImage } = this.props;
 
     return (
       <React.Fragment>
@@ -32,6 +32,7 @@ class MagnifierExample extends Component {
             <Magnifier
               className="input-position"
               imageSrc={image}
+              largeImageSrc={largeImage}
               mouseActivation={mouseActivation}
               touchActivation={touchActivation}
               dragToMove={dragToMove}

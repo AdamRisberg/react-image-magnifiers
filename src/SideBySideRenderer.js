@@ -1,6 +1,7 @@
 import React from "react";
 import utils from "./utils";
 import styles from "./styles";
+import Image from "./Image";
 import ImagePreviewOverlay from "./ImagePreviewOverlay";
 
 const SideBySideRenderer = props => {
@@ -22,7 +23,8 @@ const SideBySideRenderer = props => {
     renderOverlay,
     cursorStyle,
     onImageLoad,
-    onLargeImageLoad
+    onLargeImageLoad,
+    onLoadRefresh
   } = props;
 
   let inPlace = false;
@@ -108,7 +110,7 @@ const SideBySideRenderer = props => {
         overflow: inPlace ? "hidden" : "visible"
       }}
     >
-      <img
+      <Image
         style={{
           width: "100%",
           display: "block",
@@ -116,7 +118,8 @@ const SideBySideRenderer = props => {
         }}
         src={imageSrc}
         alt={imageAlt}
-        onLoad={onImageLoad}
+        onImageLoad={onImageLoad}
+        onLoadRefresh={onLoadRefresh}
       />
       <div
         style={{
@@ -129,12 +132,13 @@ const SideBySideRenderer = props => {
           transition: `opacity ${transSpeed}s ease`
         }}
       >
-        <img
+        <Image
           style={styles.getLargeImageStyle(position.x, position.y, true)}
           src={largeImageSrc || imageSrc}
           alt={imageAlt}
           ref={itemRef}
-          onLoad={onLargeImageLoad}
+          onImageLoad={onLargeImageLoad}
+          onLoadRefresh={onLoadRefresh}
         />
       </div>
       <ImagePreviewOverlay

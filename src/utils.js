@@ -1,5 +1,5 @@
 function invertNumber(min, max, num) {
-  return (max + min) - num;
+  return max + min - num;
 }
 
 function convertRange(oldMin, oldMax, newMin, newMax, oldValue) {
@@ -8,32 +8,35 @@ function convertRange(oldMin, oldMax, newMin, newMax, oldValue) {
 }
 
 function convertWidthToPx(width, containerWidth) {
-  if(typeof width === "number") {
+  if (typeof width === "number") {
     return width;
   }
-  if(typeof width !== "string") {
+  if (typeof width !== "string") {
     throw new Error(`Received: ${width} - Size must be a number or string`);
   }
-  if(width.substr(-1) === "%") {
+  if (width.substr(-1) === "%") {
     const percent = 100 / Number(width.slice(0, -1));
     return containerWidth / percent;
   }
-  if(width.substr(-2) === "px") {
+  if (width.substr(-2) === "px") {
     return Number(width.slice(0, -2));
   }
   return Number(width);
 }
 
 function convertWidthToString(width) {
-  if(typeof width === "number") {
+  if (typeof width === "number") {
     return width + "px";
   }
   return width;
 }
 
+function noop() {}
+
 export default {
   invertNumber,
   convertRange,
   convertWidthToPx,
-  convertWidthToString
+  convertWidthToString,
+  noop
 };

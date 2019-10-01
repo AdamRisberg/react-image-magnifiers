@@ -49,7 +49,7 @@ class PictureExample extends Component {
       shadow
     } = this.state;
 
-    const { image } = this.props;
+    const { image, largeImage } = this.props;
 
     return (
       <React.Fragment>
@@ -59,6 +59,7 @@ class PictureExample extends Component {
               <PictureInPictureMagnifier
                 className="input-position"
                 imageSrc={image}
+                largeImageSrc={largeImage}
                 previewHorizontalPos={previewHorizontalPos}
                 previewVerticalPos={previewVerticalPos}
                 previewSizePercentage={previewSizePercentage}

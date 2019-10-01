@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import utils from "./utils";
 import ReactInputPosition, {
   MOUSE_ACTIVATION,
   TOUCH_ACTIVATION
@@ -61,7 +62,10 @@ MagnifierPreview.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   cursorStyle: PropTypes.string,
-  imageSrc: PropTypes.string,
+  imageSrc: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
   imageAlt: PropTypes.string,
   onImageLoad: PropTypes.func,
   renderOverlay: PropTypes.func,
@@ -74,7 +78,7 @@ MagnifierPreview.defaultProps = {
   cursorStyle: "crosshair",
   imageSrc: "",
   imageAlt: "",
-  onImageLoad: () => {}
+  onImageLoad: utils.noop
 };
 
 export default MagnifierPreview;

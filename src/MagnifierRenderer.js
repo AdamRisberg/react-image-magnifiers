@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "./Image";
 import styles from "./styles";
 
 const MagnifierRenderer = props => {
@@ -15,7 +16,8 @@ const MagnifierRenderer = props => {
     cursorStyle,
     cursorStyleActive,
     onImageLoad,
-    onLargeImageLoad
+    onLargeImageLoad,
+    onLoadRefresh
   } = props;
 
   const legalSize = itemDimensions.width > elementDimensions.width;
@@ -28,11 +30,12 @@ const MagnifierRenderer = props => {
 
   return (
     <div style={{ position: "relative", cursor: finalCursorStyle }}>
-      <img
+      <Image
         style={{ width: "100%", display: "block" }}
         src={imageSrc}
         alt={imageAlt}
-        onLoad={onImageLoad}
+        onImageLoad={onImageLoad}
+        onLoadRefresh={onLoadRefresh}
       />
       <div
         style={styles.getZoomContainerStyle(
@@ -41,7 +44,7 @@ const MagnifierRenderer = props => {
           true
         )}
       >
-        <img
+        <Image
           style={styles.getLargeImageStyle(
             itemPosition.x,
             itemPosition.y,
@@ -50,7 +53,8 @@ const MagnifierRenderer = props => {
           src={largeImageSrc || imageSrc}
           alt={imageAlt}
           ref={itemRef}
-          onLoad={onLargeImageLoad}
+          onImageLoad={onLargeImageLoad}
+          onLoadRefresh={onLoadRefresh}
         />
       </div>
       {renderOverlay ? renderOverlay(active) : null}

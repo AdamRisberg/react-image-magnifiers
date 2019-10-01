@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import utils from "./utils";
 import ReactInputPosition, {
   TOUCH_ACTIVATION,
   MOUSE_ACTIVATION
@@ -10,8 +11,14 @@ class PictureInPictureMagnifier extends Component {
   containerRef = React.createRef();
 
   static propTypes = {
-    imageSrc: PropTypes.string,
-    largeImageSrc: PropTypes.string,
+    imageSrc: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.string)
+    ]),
+    largeImageSrc: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.string)
+    ]),
     imageAlt: PropTypes.string,
     previewSizePercentage: PropTypes.number,
     previewHorizontalPos: PropTypes.oneOf(["left", "right"]),
@@ -43,8 +50,8 @@ class PictureInPictureMagnifier extends Component {
     cursorStyle: "crosshair",
     cursorStyleActive: "",
     shadowColor: "rgba(0,0,0,.4)",
-    onImageLoad: () => {},
-    onLargeImageLoad: () => {}
+    onImageLoad: utils.noop,
+    onLargeImageLoad: utils.noop
   };
 
   render() {

@@ -1,5 +1,6 @@
 import React from "react";
 import utils from "./utils";
+import Image from "./Image";
 import styles from "./styles";
 
 const GlassRenderer = props => {
@@ -23,7 +24,8 @@ const GlassRenderer = props => {
     renderOverlay,
     cursorStyle,
     onImageLoad,
-    onLargeImageLoad
+    onLargeImageLoad,
+    onLoadRefresh
   } = props;
 
   const legalSize = itemDimensions.width > elementDimensions.width;
@@ -50,16 +52,17 @@ const GlassRenderer = props => {
 
   return (
     <React.Fragment>
-      <img
-        src={imageSrc}
-        alt={imageAlt}
+      <Image
         style={{
           width: "100%",
           display: "block",
           boxSizing: "border-box",
           cursor: legalSize ? cursorStyle : "default"
         }}
-        onLoad={onImageLoad}
+        src={imageSrc}
+        alt={imageAlt}
+        onImageLoad={onImageLoad}
+        onLoadRefresh={onLoadRefresh}
       />
       <div
         style={{
@@ -77,12 +80,13 @@ const GlassRenderer = props => {
           backgroundClip: "padding-box"
         }}
       >
-        <img
+        <Image
+          style={styles.getLargeImageStyle(position.x, position.y, isActive)}
           ref={itemRef}
           src={largeImageSrc || imageSrc}
           alt={imageAlt}
-          style={styles.getLargeImageStyle(position.x, position.y, isActive)}
-          onLoad={onLargeImageLoad}
+          onImageLoad={onLargeImageLoad}
+          onLoadRefresh={onLoadRefresh}
         />
       </div>
       {renderOverlay ? renderOverlay(active) : null}

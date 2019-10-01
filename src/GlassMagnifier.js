@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import utils from "./utils";
 import ReactInputPosition, {
   TOUCH_ACTIVATION,
   MOUSE_ACTIVATION
@@ -62,8 +63,14 @@ const GlassMagnifier = props => {
 };
 
 GlassMagnifier.propTypes = {
-  imageSrc: PropTypes.string,
-  largeImageSrc: PropTypes.string,
+  imageSrc: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
+  largeImageSrc: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
   imageAlt: PropTypes.string,
   allowOverflow: PropTypes.bool,
   magnifierBorderSize: PropTypes.number,
@@ -94,8 +101,8 @@ GlassMagnifier.defaultProps = {
   magnifierOffsetY: 0,
   square: false,
   cursorStyle: "none",
-  onImageLoad: () => {},
-  onLargeImageLoad: () => {}
+  onImageLoad: utils.noop,
+  onLargeImageLoad: utils.noop
 };
 
 export default GlassMagnifier;

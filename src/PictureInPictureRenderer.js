@@ -1,6 +1,7 @@
 import React from "react";
 import utils from "./utils";
 import styles from "./styles";
+import Image from "./Image";
 import ImagePreviewOverlay from "./ImagePreviewOverlay";
 
 const PictureInPictureRenderer = props => {
@@ -134,7 +135,7 @@ const PictureInPictureRenderer = props => {
         cursor: legalSize ? finalCursorStyle : "default"
       }}
     >
-      <img
+      <Image
         style={{
           width: "100%",
           display: "block",
@@ -143,10 +144,11 @@ const PictureInPictureRenderer = props => {
         }}
         src={imageSrc}
         alt={imageAlt}
-        onLoad={e => {
+        onImageLoad={e => {
           onLoadRefresh();
           onImageLoad(e);
         }}
+        onLoadRefresh={onLoadRefresh}
       />
       <div
         style={{
@@ -163,7 +165,7 @@ const PictureInPictureRenderer = props => {
           fontSize: "1rem"
         }}
       >
-        <img
+        <Image
           style={{
             ...styles.getLargeImageStyle(position.x, position.y, true),
             visibility: legalSize ? "visible" : "hidden",
@@ -172,7 +174,8 @@ const PictureInPictureRenderer = props => {
           src={largeImageSrc || imageSrc}
           alt={imageAlt}
           ref={itemRef}
-          onLoad={onLargeImageLoad}
+          onImageLoad={onLargeImageLoad}
+          onLoadRefresh={onLoadRefresh}
         />
         <img
           src={imageSrc}

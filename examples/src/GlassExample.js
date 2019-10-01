@@ -41,7 +41,7 @@ class GlassExample extends Component {
       square
     } = this.state;
 
-    const { image } = this.props;
+    const { image, largeImage } = this.props;
 
     return (
       <React.Fragment>
@@ -50,6 +50,7 @@ class GlassExample extends Component {
             <GlassMagnifier
               className="input-position"
               imageSrc={image}
+              largeImageSrc={largeImage}
               allowOverflow={allowOverflow}
               magnifierSize={magnifierSize}
               magnifierBorderSize={magnifierBorderSize}
