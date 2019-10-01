@@ -80,11 +80,11 @@ _imageSrc is the only required prop._
 
 **cursorStyle:** Accepts any valid CSS cursor. Default: Magnifier - "zoom-in", GlassMagnifier - "none", SideBySideMagnifier - "crosshair", PictureInPicture - "crosshair". Type: string.
 
-**imageSrc:** Passed to the src of the small image (not zoomed). Also used for the large image (zoomed) if no largeImageSrc is set.
+**imageSrc:** Passed to the src of the small image (not zoomed). Also used for the large image (zoomed) if no largeImageSrc is set. Also accepts an array of image paths in case fallbacks are required. Each image path in the array will be tried in order until either one loads, or the end of the array is reached. Type: string or array of strings, Default: "".
+
+**largeImageSrc:** Passed to the src of the large image (zoomed). Also accepts an array of image paths in case fallbacks are required. Each image path in the array will be tried in order until either one loads, or the end of the array is reached. Type: string or array of strings, Default: "".
 
 **imageAlt:** Passed to the alt of both images.
-
-**largeImageSrc:** Passed to the src of the large image (zoomed).
 
 **style:** Passed to the style of the parent div.
 
@@ -172,7 +172,7 @@ _imageSrc is the only required prop._
 
 ## MagnifierPreview Props
 
-**imageSrc:** Passed to the src of the image.
+**imageSrc:** Passed to the src of the image. Also accepts an array of image paths in case fallbacks are required. Each image path in the array will be tried in order until either one loads, or the end of the array is reached. Type: string or array of strings, Default: "".
 
 **imageAlt:** Passed to the alt of the image.
 
@@ -194,7 +194,7 @@ _imageSrc is the only required prop._
 
 ## MagnifierZoom Props
 
-**imageSrc:** Passed to the src of the image.
+**imageSrc:** Passed to the src of the image. Also accepts an array of image paths in case fallbacks are required. Each image path in the array will be tried in order until either one loads, or the end of the array is reached. Type: string or array of strings, Default: "".
 
 **imageAlt:** Passed to the alt of the image.
 

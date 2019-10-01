@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.1 (October 1st, 2019)
+
+- Added image fallback feature. imageSrc and largeImageSrc props now accept an array of paths.
+
 ## 1.2.0 (September 29th, 2019)
 
 - Added MagnifierContainer, MagnifierPreview, and MagnifierZoom components for creating more advanced magnifier layouts.
