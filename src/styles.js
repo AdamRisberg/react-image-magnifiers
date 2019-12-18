@@ -19,7 +19,7 @@ function getZoomContainerStyle(width, height, inPlace) {
     pointerEvents: "none",
     width: `${width}px`,
     height: `${height}px`,
-    left: `${inPlace ? 0 : width}px`,
+    right: `${inPlace ? 0 : width}px`,
     top: "0",
     overflow: "hidden"
   };

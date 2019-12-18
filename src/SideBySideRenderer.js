@@ -31,7 +31,7 @@ const SideBySideRenderer = props => {
   try {
     inPlace =
       alwaysInPlace ||
-      elementDimensions.width * 2 + elementOffset.left > window.innerWidth;
+      elementDimensions.width * 2 + elementOffset.right > window.innerWidth;
   } catch (e) {}
   const legalSize = itemDimensions.width > elementDimensions.width;
   const isActive = legalSize && active;
