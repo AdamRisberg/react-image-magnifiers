@@ -1,10 +1,7 @@
 import React from "react";
 
 const SideExampleControls = props => {
-  const {
-    handleBoolChange,
-    handleOpacityChange
-  } = props;
+  const { handleBoolChange, handleOpacityChange } = props;
 
   return (
     <div className="controls">
@@ -14,7 +11,17 @@ const SideExampleControls = props => {
           <option value="">false</option>
           <option value="true">true</option>
         </select>
-        <div className="note">Uses In Place mode automatically if there isn't enough room to display side by side.</div>
+        <div className="note">
+          Uses In Place mode automatically if there isn't enough room to display
+          side by side.
+        </div>
+      </label>
+      <label className="label">
+        Switch Sides:
+        <select onChange={handleBoolChange("switchSides")}>
+          <option value="">false</option>
+          <option value="true">true</option>
+        </select>
       </label>
       <label className="label">
         Overlay Opacity:

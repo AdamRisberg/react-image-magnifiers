@@ -6,7 +6,8 @@ import SideExampleControls from "./SideExampleControls";
 class SideExample extends Component {
   state = {
     alwaysInPlace: false,
-    overlayOpacity: 0.6
+    overlayOpacity: 0.6,
+    switchSides: false
   };
 
   handleBoolChange = key => e => {
@@ -20,7 +21,7 @@ class SideExample extends Component {
   };
 
   render() {
-    const { alwaysInPlace, overlayOpacity } = this.state;
+    const { alwaysInPlace, overlayOpacity, switchSides } = this.state;
 
     const { image, largeImage } = this.props;
 
@@ -30,10 +31,13 @@ class SideExample extends Component {
           <div className="flex">
             <SideBySideMagnifier
               className="input-position"
+              style={{ order: switchSides ? "1" : "0" }}
               imageSrc={image}
               largeImageSrc={largeImage}
               alwaysInPlace={alwaysInPlace}
               overlayOpacity={overlayOpacity}
+              switchSides={switchSides}
+              zoomPosition="left"
             />
             <SideExampleControls
               handleBoolChange={this.handleBoolChange}
