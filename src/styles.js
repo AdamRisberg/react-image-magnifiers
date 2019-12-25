@@ -12,17 +12,26 @@ function getLargeImageStyle(positionX, positionY, active) {
   };
 }
 
-function getZoomContainerStyle(width, height, inPlace) {
-  return {
+function getZoomContainerStyle(width, height, inPlace, switchSides) {
+  const style = {
     position: "absolute",
     boxSizing: "border-box",
     pointerEvents: "none",
     width: `${width}px`,
     height: `${height}px`,
-    left: `${inPlace ? 0 : width}px`,
     top: "0",
     overflow: "hidden"
   };
+
+  if (inPlace) {
+    style.left = "0px";
+  } else if (switchSides) {
+    style.right = `${width}px`;
+  } else {
+    style.left = `${width}px`;
+  }
+
+  return style;
 }
 
 function getOverlayCenterStyle(

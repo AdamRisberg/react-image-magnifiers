@@ -24,14 +24,19 @@ const SideBySideRenderer = props => {
     cursorStyle,
     onImageLoad,
     onLargeImageLoad,
-    onLoadRefresh
+    onLoadRefresh,
+    switchSides
   } = props;
 
   let inPlace = false;
   try {
-    inPlace =
-      alwaysInPlace ||
-      elementDimensions.width * 2 + elementOffset.left > window.innerWidth;
+    if (switchSides) {
+      inPlace = alwaysInPlace || elementOffset.left < elementDimensions.width;
+    } else {
+      inPlace =
+        alwaysInPlace ||
+        elementDimensions.width * 2 + elementOffset.left > window.innerWidth;
+    }
   } catch (e) {}
   const legalSize = itemDimensions.width > elementDimensions.width;
   const isActive = legalSize && active;
@@ -126,7 +131,8 @@ const SideBySideRenderer = props => {
           ...styles.getZoomContainerStyle(
             smallImageSize.width,
             smallImageSize.height,
-            inPlace
+            inPlace,
+            switchSides
           ),
           opacity: isActive ? "1" : "0",
           transition: `opacity ${transSpeed}s ease`

@@ -22,7 +22,8 @@ const SideBySideMagnifier = props => {
     className,
     style,
     onImageLoad,
-    onLargeImageLoad
+    onLargeImageLoad,
+    switchSides
   } = props;
 
   return (
@@ -47,6 +48,7 @@ const SideBySideMagnifier = props => {
         cursorStyle={cursorStyle}
         onImageLoad={onImageLoad}
         onLargeImageLoad={onLargeImageLoad}
+        switchSides={switchSides}
       />
     </ReactInputPosition>
   );
