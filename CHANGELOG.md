@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.2 (December 25th, 2019)
+
+- Added a switchSides prop to the SideBySideMagnifier. When used, the zoomed image will be displayed to the left side of the preview (instead of the right side).
+
 ## 1.2.1 (October 1st, 2019)
 
 - Added image fallback feature. imageSrc and largeImageSrc props now accept an array of paths.

@@ -156,6 +156,8 @@ _imageSrc is the only required prop._
 
 **alwaysInPlace:** Activate in place mode, which displays the zoomed image in the same place instead of to the side. By default, the component goes into this mode automatically whenever there isn't enough room to display the zoomed image alongside. Type: boolean, Default: false.
 
+**switchSides:** Displays the zoomed image on the left side of the preview, instead of the right side. Regardless of the intended side, the zoomed image will be displayed in place if there isn't enough room available.
+
 **overlayBoxOpacity:** Sets the opacity of the white box (representing the zoom area) within the small preview image. Accepts a number between 0 and 1. Type: number, default: 0.8.
 
 **overlayOpacity:** Sets the opacity of the dark overlay (representing the area not shown during zoom). Accepts a number between 0 and 1. Type: number, Default: 0.5.
