@@ -96,6 +96,10 @@ _imageSrc is the only required prop._
 
 **onLargeImageLoad:** Passed to the onload of the large image (zoomed).
 
+**onZoomStart:** Callback to be executed on zoom start. Type: function.
+
+**onZoomEnd:** Callback to be executed on zoom end. Type: function.
+
 ## Magnifier Props
 
 **mouseActivation:** Sets the mouse method for zooming in/out. Accepts: "click" or "doubleClick". Can also import the MOUSE_ACTIVATION constants to assist. Type: string, Default: "click".
@@ -152,6 +156,8 @@ _imageSrc is the only required prop._
 
 **shadowColor:** Sets the color of the box shadow around the small preview image. Accepts any valid CSS color. Type: string, Default: "rgba(0,0,0,.4)".
 
+_Note: onZoomStart and onZoomEnd behaves differently with PictureInPictureMagnifier. Because this component is always displaying the zoom image, these callbacks will be executed when the user starts or ends interacting with the small navigation image._
+
 ## SideBySideMagnifier Props
 
 **alwaysInPlace:** Activate in place mode, which displays the zoomed image in the same place instead of to the side. By default, the component goes into this mode automatically whenever there isn't enough room to display the zoomed image alongside. Type: boolean, Default: false.
@@ -193,6 +199,10 @@ _imageSrc is the only required prop._
 **overlayOpacity:** Sets the opacity of the dark overlay (representing the area not shown during zoom). Accepts a number between 0 and 1. Type: number, Default: 0.5.
 
 **renderOverlay:** Render prop for custom overlays. The render prop function will get called with a single boolean representing the active state. Be sure to use absolute position on your content to avoid changing the size/layout of the magnifier component, which would interfere with the functionality. Default: null, Type: function.
+
+**onZoomStart:** Callback to be executed on zoom start. Type: function.
+
+**onZoomEnd:** Callback to be executed on zoom end. Type: function.
 
 ## MagnifierZoom Props
 
