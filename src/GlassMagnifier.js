@@ -25,7 +25,9 @@ const GlassMagnifier = props => {
     style,
     className,
     onImageLoad,
-    onLargeImageLoad
+    onLargeImageLoad,
+    onZoomStart,
+    onZoomEnd
   } = props;
 
   return (
@@ -38,6 +40,8 @@ const GlassMagnifier = props => {
       className={className}
       touchActivationMethod={TOUCH_ACTIVATION.TOUCH}
       mouseActivationMethod={MOUSE_ACTIVATION.HOVER}
+      onActivate={onZoomStart}
+      onDeactivate={onZoomEnd}
       trackItemPosition
       alignItemOnActivePos
       itemPositionLimitBySize

@@ -24,7 +24,9 @@ const Magnifier = props => {
     onImageLoad,
     onLargeImageLoad,
     onImageError,
-    onLargeImageError
+    onLargeImageError,
+    onZoomStart,
+    onZoomEnd
   } = props;
 
   const finalActiveCursorStyle =
@@ -39,6 +41,8 @@ const Magnifier = props => {
       trackItemPosition
       centerItemOnActivatePos={dragToMove}
       alignItemOnActivePos={!dragToMove}
+      onActivate={onZoomStart}
+      onDeactivate={onZoomEnd}
       itemPositionLimitBySize
       {...interactionSettings}
     >

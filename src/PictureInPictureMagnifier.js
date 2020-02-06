@@ -34,7 +34,9 @@ class PictureInPictureMagnifier extends Component {
     className: PropTypes.string,
     style: PropTypes.object,
     onImageLoad: PropTypes.func,
-    onLargeImageLoad: PropTypes.func
+    onLargeImageLoad: PropTypes.func,
+    onZoomStart: PropTypes.func,
+    onZoomEnd: PropTypes.func
   };
 
   static defaultProps = {
@@ -73,7 +75,9 @@ class PictureInPictureMagnifier extends Component {
       className,
       style,
       onImageLoad,
-      onLargeImageLoad
+      onLargeImageLoad,
+      onZoomStart,
+      onZoomEnd
     } = this.props;
 
     return (
@@ -95,6 +99,8 @@ class PictureInPictureMagnifier extends Component {
           }}
           touchActivationMethod={TOUCH_ACTIVATION.TOUCH}
           mouseActivationMethod={MOUSE_ACTIVATION.MOUSE_DOWN}
+          onActivate={onZoomStart}
+          onDeactivate={onZoomEnd}
           trackItemPosition
           itemPositionMinX={0}
           itemPositionMinY={0}

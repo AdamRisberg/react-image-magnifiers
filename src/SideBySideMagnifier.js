@@ -23,7 +23,9 @@ const SideBySideMagnifier = props => {
     style,
     onImageLoad,
     onLargeImageLoad,
-    switchSides
+    switchSides,
+    onZoomStart,
+    onZoomEnd
   } = props;
 
   return (
@@ -32,6 +34,8 @@ const SideBySideMagnifier = props => {
       className={className}
       touchActivationMethod={TOUCH_ACTIVATION.TOUCH}
       mouseActivationMethod={MOUSE_ACTIVATION.HOVER}
+      onActivate={onZoomStart}
+      onDeactivate={onZoomEnd}
       trackItemPosition
       linkItemToActive
     >

@@ -19,7 +19,9 @@ function MagnifierPreview(props) {
     renderOverlay,
     overlayOpacity,
     overlayBoxOpacity,
-    transitionSpeed
+    transitionSpeed,
+    onZoomStart,
+    onZoomEnd
   } = props;
 
   const {
@@ -34,6 +36,8 @@ function MagnifierPreview(props) {
     <ReactInputPosition
       mouseActivationMethod={MOUSE_ACTIVATION.HOVER}
       touchActivationMethod={TOUCH_ACTIVATION.TOUCH}
+      onActivate={onZoomStart}
+      onDeactivate={onZoomEnd}
       className={className}
       style={style}
       cursorStyle={cursorStyle}
