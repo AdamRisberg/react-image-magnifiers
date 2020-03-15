@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0 (March 15th, 2020)
+
+- Added additional customization options to preview overlays.
+- Added autoInPlace and inPlaceMinBreakpoint props to the MagnifierContainer component. These can be used to cause custom layout magnifiers to go into "in place" mode under certain conditions.
+
 ## 1.2.3 (February 6th, 2020)
 
 - Added onZoomStart and onZoomEnd props.

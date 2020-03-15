@@ -148,6 +148,14 @@ _imageSrc is the only required prop._
 
 **previewOverlayBoxOpacity:** Sets the opacity of the white box (representing the zoom area) within the small preview image. Accepts a number between 0 and 1. Type: number, default: 0.8.
 
+**previewOverlayBackgroundColor:** Sets the color of the dark overlay (representing the area not shown during zoom). Accepts any valid CSS color. Type: string, Default: #000.
+
+**previewOverlayBoxColor:** Sets the color of the white box (representing the zoom area) within the preview image. Accepts any valid CSS color. Type: string, default: #fff.
+
+**previewOverlayBoxImage:** Used to add a background image to the white box (representing the zoom area) within the preview image. Accepts an image src path. Type: string, default: "".
+
+**previewOverlayBoxImageSize:** When using overlayBoxImage, this can be used to change the size of the background image. Accepts any valid CSS background-size value. Type: string, default: "".
+
 **previewOverlayOpacity:** Sets the opacity of the dark overlay (representing the area not shown during zoom). Accepts a number between 0 and 1. Type: number, Default: 0.4.
 
 **previewSizePercentage:** Sets the size (percentage) of the small preview image. Type: number, Default: 35.
@@ -168,6 +176,14 @@ _Note: onZoomStart and onZoomEnd behaves differently with PictureInPictureMagnif
 
 **overlayOpacity:** Sets the opacity of the dark overlay (representing the area not shown during zoom). Accepts a number between 0 and 1. Type: number, Default: 0.5.
 
+**overlayBackgroundColor:** Sets the color of the dark overlay (representing the area not shown during zoom). Accepts any valid CSS color. Type: string, Default: #000.
+
+**overlayBoxColor:** Sets the color of the white box (representing the zoom area) within the preview image. Accepts any valid CSS color. Type: string, default: #fff.
+
+**overlayBoxImage:** Used to add a background image to the white box (representing the zoom area) within the preview image. Accepts an image src path. Type: string, default: "".
+
+**overlayBoxImageSize:** When using overlayBoxImage, this can be used to change the size of the background image. Accepts any valid CSS background-size value. Type: string, default: "".
+
 **transitionSpeed:** Speed, in seconds, of the fade transition while zooming in/out. Type: number, Default: 0.4.
 
 **transitionSpeedInPlace:** Speed, in seconds, of the fade transition while zooming in/out while in place mode is active. Type: number, Default: 0.4.
@@ -178,17 +194,25 @@ _Note: onZoomStart and onZoomEnd behaves differently with PictureInPictureMagnif
 
 **className:** Passed to the className of the parent div.
 
+**autoInPlace:** Causes the magnifier to automatically switch to in place mode (zoomed view is displayed in the same place as the preview) when the MagnifierZoom component doesn't fit on the screen. Requires largeImageSrc to be set on the MagnifierPreview component. Type: boolean, default: false.
+
+**inPlaceMinBreakpoint:** Cuases the magnifier to automatically switch to in place mode (zoomed view is displayed in the same place as the preview) based on a min width breakpoint. Accepts a number representing the target screen size (in pixels) when in place mode will become active. Requires largeImageSrc to be set on the MagnifierPreview component. Type: number, default: 0.
+
 ## MagnifierPreview Props
 
 **imageSrc:** Passed to the src of the image. Also accepts an array of image paths in case fallbacks are required. Each image path in the array will be tried in order until either one loads, or the end of the array is reached. Type: string or array of strings, Default: "".
 
 **imageAlt:** Passed to the alt of the image.
 
+**largeImageSrc:** Only available when using autoInPlace or inPlaceMinBreakpoint on the MagnifierContainer. Passed to the src of the large image (zoomed while in place mode is active). Also accepts an array of image paths in case fallbacks are required. Each image path in the array will be tried in order until either one loads, or the end of the array is reached. Type: string or array of strings, Default: "".
+
 **style:** Passed to the style of the parent div.
 
 **className:** Passed to the className of the parent div.
 
 **onImageLoad:** Passed to the onload of the image.
+
+**onLargeImageLoad:** Only available when using autoInPlace or inPlaceMinBreakpoint on the MagnifierContainer. Passed to the onload of the large image (zoomed while in place mode is active).
 
 **cursorStyle:** Accepts any valid CSS cursor. Type: string, Default: "crosshair".
 
@@ -197,6 +221,14 @@ _Note: onZoomStart and onZoomEnd behaves differently with PictureInPictureMagnif
 **overlayBoxOpacity:** Sets the opacity of the white box (representing the zoom area) within the small preview image. Accepts a number between 0 and 1. Type: number, default: 0.8.
 
 **overlayOpacity:** Sets the opacity of the dark overlay (representing the area not shown during zoom). Accepts a number between 0 and 1. Type: number, Default: 0.5.
+
+**overlayBackgroundColor:** Sets the color of the dark overlay (representing the area not shown during zoom). Accepts any valid CSS color. Type: string, Default: #000.
+
+**overlayBoxColor:** Sets the color of the white box (representing the zoom area) within the preview image. Accepts any valid CSS color. Type: string, default: #fff.
+
+**overlayBoxImage:** Used to add a background image to the white box (representing the zoom area) within the preview image. Accepts an image src path. Type: string, default: "".
+
+**overlayBoxImageSize:** When using overlayBoxImage, this can be used to change the size of the background image. Accepts any valid CSS background-size value. Type: string, default: "".
 
 **renderOverlay:** Render prop for custom overlays. The render prop function will get called with a single boolean representing the active state. Be sure to use absolute position on your content to avoid changing the size/layout of the magnifier component, which would interfere with the functionality. Default: null, Type: function.
 
