@@ -15,20 +15,25 @@ class MagnifierContainer extends Component {
 
   static propTypes = {
     className: PropTypes.string,
-    style: PropTypes.object
+    style: PropTypes.object,
+    autoInPlace: PropTypes.bool
   };
 
   getZoomContainerDimensions = () => {
     if (!this.zoomContainerRef.current) {
-      return { width: 0, height: 0 };
+      return { width: 0, height: 0, left: 0, right: 0, top: 0, bottom: 0 };
     }
 
     const {
       width,
-      height
+      height,
+      left,
+      right,
+      top,
+      bottom
     } = this.zoomContainerRef.current.getBoundingClientRect();
 
-    return { width, height };
+    return { width, height, left, right, top, bottom };
   };
 
   onUpdate = changes => {
@@ -63,6 +68,18 @@ class MagnifierContainer extends Component {
     const { zoomImageDimensions } = this.state;
     const zoomContainerDimensions = this.getZoomContainerDimensions();
 
+    let inPlace = false;
+
+    if (this.props.autoInPlace) {
+      try {
+        const { left, right } = zoomContainerDimensions;
+
+        if (left < 0 || right > window.innerWidth) {
+          inPlace = true;
+        }
+      } catch (e) {}
+    }
+
     const smallImageSize = {
       width: elementDimensions.width,
       height: elementDimensions.height
@@ -83,8 +100,8 @@ class MagnifierContainer extends Component {
     const itemPositionAdj = { ...itemPosition };
 
     const previewOffset = {
-      x: previewSize.width / 2,
-      y: previewSize.height / 2
+      x: inPlace ? 0 : previewSize.width / 2,
+      y: inPlace ? 0 : previewSize.height / 2
     };
 
     itemPositionAdj.x = Math.max(previewOffset.x, itemPositionAdj.x);
@@ -100,28 +117,32 @@ class MagnifierContainer extends Component {
 
     position = { ...itemPositionAdj };
 
+    const zoomContainerSize = inPlace
+      ? smallImageSize
+      : zoomContainerDimensions;
+
     position.x = utils.convertRange(
       previewOffset.x,
       smallImageSize.width - previewOffset.x,
-      zoomImageDimensions.width * -1 + zoomContainerDimensions.width,
+      zoomImageDimensions.width * -1 + zoomContainerSize.width,
       0,
       position.x
     );
     position.y = utils.convertRange(
       previewOffset.y,
       smallImageSize.height - previewOffset.y,
-      zoomImageDimensions.height * -1 + zoomContainerDimensions.height,
+      zoomImageDimensions.height * -1 + zoomContainerSize.height,
       0,
       position.y
     );
 
     position.x = utils.invertNumber(
-      zoomImageDimensions.width * -1 + zoomContainerDimensions.width,
+      zoomImageDimensions.width * -1 + zoomContainerSize.width,
       0,
       position.x
     );
     position.y = utils.invertNumber(
-      zoomImageDimensions.height * -1 + zoomContainerDimensions.height,
+      zoomImageDimensions.height * -1 + zoomContainerSize.height,
       0,
       position.y
     );
@@ -135,7 +156,8 @@ class MagnifierContainer extends Component {
       position,
       smallImageSize,
       previewSize,
-      zoomContainerDimensions
+      zoomContainerDimensions,
+      inPlace
     };
   }
 

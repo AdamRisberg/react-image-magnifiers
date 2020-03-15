@@ -21,7 +21,8 @@ function MagnifierZoom(props) {
     position,
     onZoomImageLoad,
     zoomRef,
-    isActive
+    isActive,
+    inPlace
   } = React.useContext(MagnifierContext);
 
   let invalidVertical =
@@ -33,9 +34,10 @@ function MagnifierZoom(props) {
     <div
       className={className}
       style={{
-        ...styles.getMagnifierZoomStyle(isActive, transitionSpeed),
+        ...styles.getMagnifierZoomStyle(isActive && !inPlace, transitionSpeed),
         ...style,
-        overflow: "hidden"
+        overflow: "hidden",
+        pointerEvents: "none"
       }}
       ref={zoomRef}
     >
