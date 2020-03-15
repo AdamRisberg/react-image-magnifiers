@@ -8,7 +8,6 @@ function MagnifierPreviewRenderer(props) {
     image,
     largeImage,
     alt,
-    largeAlt,
     previewSize,
     smallImageSize,
     overlayOpacity,
@@ -72,7 +71,7 @@ function MagnifierPreviewRenderer(props) {
               ...styles.getLargeImageStyle(position.x, position.y, inPlace)
             }}
             src={largeImage}
-            alt={largeAlt}
+            alt={alt}
             onImageLoad={onLargeImageLoad}
           />
         </div>
