@@ -14,6 +14,10 @@ const SideBySideMagnifier = props => {
     imageAlt,
     overlayOpacity,
     overlayBoxOpacity,
+    overlayBackgroundColor,
+    overlayBoxColor,
+    overlayBoxImage,
+    overlayBoxImageSize,
     cursorStyle,
     alwaysInPlace,
     transitionSpeed,
@@ -45,6 +49,10 @@ const SideBySideMagnifier = props => {
         imageAlt={imageAlt}
         overlayOpacity={overlayOpacity}
         overlayBoxOpacity={overlayBoxOpacity}
+        overlayBackgroundColor={overlayBackgroundColor}
+        overlayBoxColor={overlayBoxColor}
+        overlayBoxImage={overlayBoxImage}
+        overlayBoxImageSize={overlayBoxImageSize}
         alwaysInPlace={alwaysInPlace}
         transitionSpeed={transitionSpeed}
         transitionSpeedInPlace={transitionSpeedInPlace}
@@ -70,6 +78,10 @@ SideBySideMagnifier.propTypes = {
   imageAlt: PropTypes.string,
   overlayOpacity: PropTypes.number,
   overlayBoxOpacity: PropTypes.number,
+  overlayBackgroundColor: PropTypes.string,
+  overlayBoxColor: PropTypes.string,
+  overlayBoxImage: PropTypes.string,
+  overlayBoxImageSize: PropTypes.string,
   cursorStyle: PropTypes.string,
   alwaysInPlace: PropTypes.bool,
   transitionSpeed: PropTypes.number,
@@ -87,6 +99,10 @@ SideBySideMagnifier.defaultProps = {
   imageAlt: "",
   overlayOpacity: 0.5,
   overlayBoxOpacity: 0.8,
+  overlayBackgroundColor: "#000",
+  overlayBoxColor: "#fff",
+  overlayBoxImage: "",
+  overlayBoxImageSize: "",
   cursorStyle: "crosshair",
   transitionSpeed: 0.4,
   transitionSpeedInPlace: 0.4,

@@ -26,6 +26,10 @@ class PictureInPictureMagnifier extends Component {
     previewOpacity: PropTypes.number,
     previewOverlayOpacity: PropTypes.number,
     previewOverlayBoxOpacity: PropTypes.number,
+    previewOverlayBackgroundColor: PropTypes.string,
+    previewOverlayBoxColor: PropTypes.string,
+    previewOverlayBoxImage: PropTypes.string,
+    previewOverlayBoxImageSize: PropTypes.string,
     cursorStyle: PropTypes.string,
     cursorStyleActive: PropTypes.string,
     shadow: PropTypes.bool,
@@ -49,6 +53,10 @@ class PictureInPictureMagnifier extends Component {
     previewOpacity: 0.8,
     previewOverlayOpacity: 0.4,
     previewOverlayBoxOpacity: 0.8,
+    previewOverlayBackgroundColor: "#000",
+    previewOverlayBoxColor: "#fff",
+    previewOverlayBoxImage: "",
+    previewOverlayBoxImageSize: "",
     cursorStyle: "crosshair",
     cursorStyleActive: "",
     shadowColor: "rgba(0,0,0,.4)",
@@ -67,6 +75,10 @@ class PictureInPictureMagnifier extends Component {
       previewOpacity,
       previewOverlayOpacity,
       previewOverlayBoxOpacity,
+      previewOverlayBackgroundColor,
+      previewOverlayBoxColor,
+      previewOverlayBoxImage,
+      previewOverlayBoxImageSize,
       cursorStyle,
       cursorStyleActive,
       shadow,
@@ -116,6 +128,10 @@ class PictureInPictureMagnifier extends Component {
             previewOpacity={previewOpacity}
             previewOverlayOpacity={previewOverlayOpacity}
             previewOverlayBoxOpacity={previewOverlayBoxOpacity}
+            previewOverlayBackgroundColor={previewOverlayBackgroundColor}
+            previewOverlayBoxColor={previewOverlayBoxColor}
+            previewOverlayBoxImage={previewOverlayBoxImage}
+            previewOverlayBoxImageSize={previewOverlayBoxImageSize}
             imageSrc={imageSrc}
             largeImageSrc={largeImageSrc}
             imageAlt={imageAlt}

@@ -40,8 +40,21 @@ function getOverlayCenterStyle(
   left,
   top,
   opacity,
-  transitionSpeed
+  transitionSpeed,
+  color,
+  backgroundImage,
+  backgroundImageSize
 ) {
+  const backgroundStyle = {};
+
+  if (backgroundImage) {
+    backgroundStyle.backgroundImage = `url("${backgroundImage}")`;
+  }
+
+  if (backgroundImageSize) {
+    backgroundStyle.backgroundSize = backgroundImageSize;
+  }
+
   return {
     position: "absolute",
     width: `${width}px`,
@@ -50,17 +63,24 @@ function getOverlayCenterStyle(
     top: 0,
     boxSizing: "border-box",
     transform: `translate(${left}px, ${top}px)`,
-    border: `1px solid white`,
+    border: `1px solid ${color}`,
     opacity: opacity,
     transition: `opacity ${transitionSpeed}s ease`,
     zIndex: "15",
-    pointerEvents: "none"
+    pointerEvents: "none",
+    ...backgroundStyle
   };
 }
 
-function getOverlayTopStyle(width, height, opacity, transitionSpeed) {
+function getOverlayTopStyle(
+  width,
+  height,
+  opacity,
+  transitionSpeed,
+  backgroundColor
+) {
   return {
-    backgroundColor: "#000",
+    backgroundColor: backgroundColor,
     position: "absolute",
     boxSizing: "border-box",
     top: 0,
@@ -75,9 +95,16 @@ function getOverlayTopStyle(width, height, opacity, transitionSpeed) {
   };
 }
 
-function getOverlayLeftStyle(width, height, top, opacity, transitionSpeed) {
+function getOverlayLeftStyle(
+  width,
+  height,
+  top,
+  opacity,
+  transitionSpeed,
+  backgroundColor
+) {
   return {
-    backgroundColor: "#000",
+    backgroundColor: backgroundColor,
     position: "absolute",
     boxSizing: "border-box",
     width: `${width}px`,
@@ -92,9 +119,16 @@ function getOverlayLeftStyle(width, height, top, opacity, transitionSpeed) {
   };
 }
 
-function getOverlayRightStyle(width, height, top, opacity, transitionSpeed) {
+function getOverlayRightStyle(
+  width,
+  height,
+  top,
+  opacity,
+  transitionSpeed,
+  backgroundColor
+) {
   return {
-    backgroundColor: "#000",
+    backgroundColor: backgroundColor,
     position: "absolute",
     boxSizing: "border-box",
     top: `${top}px`,
@@ -109,9 +143,16 @@ function getOverlayRightStyle(width, height, top, opacity, transitionSpeed) {
   };
 }
 
-function getOverlayBottomStyle(width, height, top, opacity, transitionSpeed) {
+function getOverlayBottomStyle(
+  width,
+  height,
+  top,
+  opacity,
+  transitionSpeed,
+  backgroundColor
+) {
   return {
-    backgroundColor: "#000",
+    backgroundColor: backgroundColor,
     position: "absolute",
     boxSizing: "border-box",
     top: `${top}px`,

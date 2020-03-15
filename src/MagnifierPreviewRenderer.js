@@ -13,6 +13,10 @@ function MagnifierPreviewRenderer(props) {
     smallImageSize,
     overlayOpacity,
     overlayBoxOpacity,
+    overlayBackgroundColor,
+    overlayBoxColor,
+    overlayBoxImage,
+    overlayBoxImageSize,
     active,
     onImageLoad,
     onLargeImageLoad,
@@ -43,6 +47,10 @@ function MagnifierPreviewRenderer(props) {
         imageHeight={smallImageSize.height}
         overlayOpacity={overlayOpacity}
         overlayBoxOpacity={overlayBoxOpacity}
+        overlayBackgroundColor={overlayBackgroundColor}
+        overlayBoxColor={overlayBoxColor}
+        overlayBoxImage={overlayBoxImage}
+        overlayBoxImageSize={overlayBoxImageSize}
         active={active && !inPlace}
         transitionSpeed={transitionSpeed}
       />

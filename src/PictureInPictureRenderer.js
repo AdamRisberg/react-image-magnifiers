@@ -20,6 +20,10 @@ const PictureInPictureRenderer = props => {
     previewOpacity,
     previewOverlayOpacity,
     previewOverlayBoxOpacity,
+    previewOverlayBackgroundColor,
+    previewOverlayBoxColor,
+    previewOverlayBoxImage,
+    previewOverlayBoxImageSize,
     renderOverlay,
     cursorStyle,
     cursorStyleActive,
@@ -198,6 +202,10 @@ const PictureInPictureRenderer = props => {
         imageHeight={smallImageSize.height}
         overlayOpacity={previewOverlayOpacity}
         overlayBoxOpacity={previewOverlayBoxOpacity}
+        overlayBackgroundColor={previewOverlayBackgroundColor}
+        overlayBoxColor={previewOverlayBoxColor}
+        overlayBoxImage={previewOverlayBoxImage}
+        overlayBoxImageSize={previewOverlayBoxImageSize}
         active={legalSize}
       />
     </div>

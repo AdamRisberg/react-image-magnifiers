@@ -17,6 +17,10 @@ const SideBySideRenderer = props => {
     itemRef,
     overlayOpacity,
     overlayBoxOpacity,
+    overlayBackgroundColor,
+    overlayBoxColor,
+    overlayBoxImage,
+    overlayBoxImageSize,
     alwaysInPlace,
     transitionSpeed,
     transitionSpeedInPlace,
@@ -158,6 +162,10 @@ const SideBySideRenderer = props => {
         imageHeight={smallImageSize.height}
         overlayOpacity={overlayOpacity}
         overlayBoxOpacity={overlayBoxOpacity}
+        overlayBackgroundColor={overlayBackgroundColor}
+        overlayBoxColor={overlayBoxColor}
+        overlayBoxImage={overlayBoxImage}
+        overlayBoxImageSize={overlayBoxImageSize}
         active={isActive && !inPlace}
         transitionSpeed={transSpeed}
       />

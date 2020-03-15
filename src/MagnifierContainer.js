@@ -16,7 +16,12 @@ class MagnifierContainer extends Component {
   static propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
-    autoInPlace: PropTypes.bool
+    autoInPlace: PropTypes.bool,
+    inPlaceMinBreakpoint: PropTypes.number
+  };
+
+  static defaultProps = {
+    inPlaceMinBreakpoint: 0
   };
 
   getZoomContainerDimensions = () => {
@@ -69,12 +74,18 @@ class MagnifierContainer extends Component {
     const zoomContainerDimensions = this.getZoomContainerDimensions();
 
     let inPlace = false;
+    const { autoInPlace, inPlaceMinBreakpoint } = this.props;
 
-    if (this.props.autoInPlace) {
+    if (autoInPlace || inPlaceMinBreakpoint) {
       try {
         const { left, right } = zoomContainerDimensions;
+        const windowWidth = window.innerWidth;
 
-        if (left < 0 || right > window.innerWidth) {
+        if (
+          windowWidth < inPlaceMinBreakpoint ||
+          left < 0 ||
+          right > windowWidth
+        ) {
           inPlace = true;
         }
       } catch (e) {}

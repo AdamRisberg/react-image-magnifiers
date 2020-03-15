@@ -22,6 +22,10 @@ function MagnifierPreview(props) {
     renderOverlay,
     overlayOpacity,
     overlayBoxOpacity,
+    overlayBackgroundColor,
+    overlayBoxColor,
+    overlayBoxImage,
+    overlayBoxImageSize,
     transitionSpeed,
     onZoomStart,
     onZoomEnd
@@ -64,6 +68,10 @@ function MagnifierPreview(props) {
         renderOverlay={renderOverlay}
         overlayOpacity={overlayOpacity}
         overlayBoxOpacity={overlayBoxOpacity}
+        overlayBackgroundColor={overlayBackgroundColor}
+        overlayBoxColor={overlayBoxColor}
+        overlayBoxImage={overlayBoxImage}
+        overlayBoxImageSize={overlayBoxImageSize}
         transitionSpeed={transitionSpeed}
         inPlace={inPlace}
         position={position}
@@ -91,6 +99,10 @@ MagnifierPreview.propTypes = {
   renderOverlay: PropTypes.func,
   overlayBoxOpacity: PropTypes.number,
   overlayOpacity: PropTypes.number,
+  overlayBackgroundColor: PropTypes.string,
+  overlayBoxColor: PropTypes.string,
+  overlayBoxImage: PropTypes.string,
+  overlayBoxImageSize: PropTypes.string,
   transitionSpeed: PropTypes.number
 };
 
@@ -99,6 +111,12 @@ MagnifierPreview.defaultProps = {
   imageSrc: "",
   imageAlt: "",
   largeImageSrc: "",
+  overlayOpacity: 0.5,
+  overlayBoxOpacity: 0.8,
+  overlayBackgroundColor: "#000",
+  overlayBoxColor: "#fff",
+  overlayBoxImage: "",
+  overlayBoxImageSize: "",
   transitionSpeed: 0.4,
   onImageLoad: utils.noop,
   onLargeImageLoad: utils.noop
