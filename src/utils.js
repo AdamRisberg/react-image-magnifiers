@@ -4,7 +4,8 @@ function invertNumber(min, max, num) {
 
 function convertRange(oldMin, oldMax, newMin, newMax, oldValue) {
   const percent = (oldValue - oldMin) / (oldMax - oldMin);
-  return percent * (newMax - newMin) + newMin;
+  const result = percent * (newMax - newMin) + newMin;
+  return result || 0;
 }
 
 function convertWidthToPx(width, containerWidth) {
