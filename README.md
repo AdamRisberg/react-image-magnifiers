@@ -172,6 +172,12 @@ _Note: onZoomStart and onZoomEnd behaves differently with PictureInPictureMagnif
 
 **switchSides:** Displays the zoomed image on the left side of the preview, instead of the right side. Regardless of the intended side, the zoomed image will be displayed in place if there isn't enough room available.
 
+**fillAvailableSpace:** Instead of displaying the zoomed image in a container the same size as the preview image, the zoomed image will fill all available space, horizontally and vertically, to the side of the preview. It will not grow past the size of the image. Type: boolean, default: false.
+
+**fillAlignTop:** Used in conjunction with fillAvailableSpace to prevent the zoomed image container from filling all available space upwards. Instead it will align, vertically, to the top of the preview image and fill all space to the right and down.
+
+**fillGapLeft, fillGapRight, fillGapTop, and fillGapBottom:** Used in conjuction with fillAvailableSpace to add a gap between the zoom image container and the edge of the available space.
+
 **overlayBoxOpacity:** Sets the opacity of the white box (representing the zoom area) within the small preview image. Accepts a number between 0 and 1. Type: number, default: 0.8.
 
 **overlayOpacity:** Sets the opacity of the dark overlay (representing the area not shown during zoom). Accepts a number between 0 and 1. Type: number, Default: 0.5.
@@ -184,9 +190,15 @@ _Note: onZoomStart and onZoomEnd behaves differently with PictureInPictureMagnif
 
 **overlayBoxImageSize:** When using overlayBoxImage, this can be used to change the size of the background image. Accepts any valid CSS background-size value. Type: string, default: "".
 
+**zoomContainerBorder:** Used for styling the zoom container. Accepts any valid CSS border value. Type: string, default: "none".
+
+**zoomContainerBoxShadow:** Used for styling the zoom container. Accepts any valid CSS box-shadow value. Type: string, default: "none".
+
 **transitionSpeed:** Speed, in seconds, of the fade transition while zooming in/out. Type: number, Default: 0.4.
 
 **transitionSpeedInPlace:** Speed, in seconds, of the fade transition while zooming in/out while in place mode is active. Type: number, Default: 0.4.
+
+**inPlaceMinBreakpoint:** Cuases the magnifier to automatically switch to in place mode (displaying the zoomed image in the same place instead of to the side) based on a min width breakpoint. Accepts a number representing the target screen size (in pixels) when in place mode will become active. Type: number, default: 0.
 
 ## MagnifierContainer Props
 

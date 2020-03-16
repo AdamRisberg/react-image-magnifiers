@@ -2,6 +2,7 @@
 
 ## 1.3.0 (March 15th, 2020)
 
+- Added additional layout/sizing options to the SideBySideMagnifier, including the ability to fill all available space on zoom.
 - Added additional customization options to preview overlays.
 - Added autoInPlace and inPlaceMinBreakpoint props to the MagnifierContainer component. These can be used to cause custom layout magnifiers to go into "in place" mode under certain conditions.
 
