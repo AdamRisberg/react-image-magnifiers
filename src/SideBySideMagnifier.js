@@ -29,7 +29,16 @@ const SideBySideMagnifier = props => {
     onLargeImageLoad,
     switchSides,
     onZoomStart,
-    onZoomEnd
+    onZoomEnd,
+    fillAvailableSpace,
+    fillAlignTop,
+    fillGapLeft,
+    fillGapRight,
+    fillGapTop,
+    fillGapBottom,
+    inPlaceMinBreakpoint,
+    zoomContainerBorder,
+    zoomContainerBoxShadow
   } = props;
 
   return (
@@ -61,6 +70,15 @@ const SideBySideMagnifier = props => {
         onImageLoad={onImageLoad}
         onLargeImageLoad={onLargeImageLoad}
         switchSides={switchSides}
+        fillAvailableSpace={fillAvailableSpace}
+        fillAlignTop={fillAlignTop}
+        fillGapLeft={fillGapLeft}
+        fillGapRight={fillGapRight}
+        fillGapTop={fillGapTop}
+        fillGapBottom={fillGapBottom}
+        inPlaceMinBreakpoint={inPlaceMinBreakpoint}
+        zoomContainerBorder={zoomContainerBorder}
+        zoomContainerBoxShadow={zoomContainerBoxShadow}
       />
     </ReactInputPosition>
   );
@@ -90,7 +108,16 @@ SideBySideMagnifier.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   onImageLoad: PropTypes.func,
-  onLargeImageLoad: PropTypes.func
+  onLargeImageLoad: PropTypes.func,
+  fillAvailableSpace: PropTypes.bool,
+  fillAlignTop: PropTypes.bool,
+  fillGapLeft: PropTypes.number,
+  fillGapRight: PropTypes.number,
+  fillGapTop: PropTypes.number,
+  fillGapBottom: PropTypes.number,
+  inPlaceMinBreakpoint: PropTypes.number,
+  zoomContainerBorder: PropTypes.string,
+  zoomContainerBoxShadow: PropTypes.string
 };
 
 SideBySideMagnifier.defaultProps = {
@@ -107,7 +134,16 @@ SideBySideMagnifier.defaultProps = {
   transitionSpeed: 0.4,
   transitionSpeedInPlace: 0.4,
   onImageLoad: utils.noop,
-  onLargeImageLoad: utils.noop
+  onLargeImageLoad: utils.noop,
+  fillAvailableSpace: true,
+  fillAlignTop: false,
+  fillGapLeft: 0,
+  fillGapRight: 0,
+  fillGapTop: 0,
+  fillGapBottom: 0,
+  inPlaceMinBreakpoint: 0,
+  zoomContainerBorder: "none",
+  zoomContainerBoxShadow: "none"
 };
 
 export default SideBySideMagnifier;
