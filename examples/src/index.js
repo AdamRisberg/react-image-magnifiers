@@ -15,7 +15,7 @@ const DemoApp = () => {
   return (
     <React.Fragment>
       <Header />
-      <div className="app">
+      <div style={{ paddingBottom: "100px" }} className="app">
         <MagnifierExample image={image} />
         <GlassExample image={image} />
         <PictureExample image={image} />

@@ -7,7 +7,13 @@ class SideExample extends Component {
   state = {
     alwaysInPlace: false,
     overlayOpacity: 0.6,
-    switchSides: false
+    switchSides: false,
+    fillAvailableSpace: false,
+    fillAlignTop: false,
+    fillGapLeft: 0,
+    fillGapRight: 10,
+    fillGapTop: 10,
+    fillGapBottom: 10
   };
 
   handleBoolChange = key => e => {
@@ -15,13 +21,23 @@ class SideExample extends Component {
     this.setState(() => ({ [key]: value }));
   };
 
-  handleOpacityChange = e => {
+  handleNumberChange = key => e => {
     const value = Number(e.target.value);
-    this.setState(() => ({ overlayOpacity: value }));
+    this.setState(() => ({ [key]: value }));
   };
 
   render() {
-    const { alwaysInPlace, overlayOpacity, switchSides } = this.state;
+    const {
+      alwaysInPlace,
+      overlayOpacity,
+      switchSides,
+      fillAvailableSpace,
+      fillAlignTop,
+      fillGapLeft,
+      fillGapRight,
+      fillGapTop,
+      fillGapBottom
+    } = this.state;
 
     const { image, largeImage } = this.props;
 
@@ -38,10 +54,20 @@ class SideExample extends Component {
               overlayOpacity={overlayOpacity}
               switchSides={switchSides}
               zoomPosition="left"
+              inPlaceMinBreakpoint={641}
+              fillAvailableSpace={fillAvailableSpace}
+              fillAlignTop={fillAlignTop}
+              fillGapTop={fillGapTop}
+              fillGapRight={fillGapRight}
+              fillGapBottom={fillGapBottom}
+              fillGapLeft={fillGapLeft}
+              zoomContainerBorder="1px solid #ccc"
+              zoomContainerBoxShadow="0 4px 8px rgba(0,0,0,.5)"
             />
             <SideExampleControls
               handleBoolChange={this.handleBoolChange}
-              handleOpacityChange={this.handleOpacityChange}
+              handleNumberChange={this.handleNumberChange}
+              enableFillControls={fillAvailableSpace}
             />
           </div>
         </ExampleContainer>
