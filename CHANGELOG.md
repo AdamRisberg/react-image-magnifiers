@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.3.0 (March 15th, 2020)
+## 1.3.0 (March 16th, 2020)
 
 - Added additional layout/sizing options to the SideBySideMagnifier, including the ability to fill all available space on zoom.
 - Added additional customization options to preview overlays.
