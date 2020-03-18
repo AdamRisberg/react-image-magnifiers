@@ -208,7 +208,7 @@ _Note: onZoomStart and onZoomEnd behaves differently with PictureInPictureMagnif
 
 **autoInPlace:** Causes the magnifier to automatically switch to in place mode (zoomed view is displayed in the same place as the preview) when the MagnifierZoom component doesn't fit on the screen. Requires largeImageSrc to be set on the MagnifierPreview component. Type: boolean, default: false.
 
-**inPlaceMinBreakpoint:** Cuases the magnifier to automatically switch to in place mode (zoomed view is displayed in the same place as the preview) based on a min width breakpoint. Accepts a number representing the target screen size (in pixels) when in place mode will become active. Requires largeImageSrc to be set on the MagnifierPreview component. Type: number, default: 0.
+**inPlaceMinBreakpoint:** Causes the magnifier to automatically switch to in place mode (zoomed view is displayed in the same place as the preview) based on a min width breakpoint. Accepts a number representing the target screen size (in pixels) when in place mode will become active. Requires largeImageSrc to be set on the MagnifierPreview component. Type: number, default: 0.
 
 ## MagnifierPreview Props
 
