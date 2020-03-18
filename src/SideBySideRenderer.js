@@ -195,12 +195,7 @@ const SideBySideRenderer = props => {
   previewSize.bottom = Math.floor(itemPositionAdj.y + previewOffset.y) || 0;
 
   return (
-    <div
-      style={{
-        position: "relative",
-        overflow: inPlace ? "hidden" : "visible"
-      }}
-    >
+    <div style={{ position: "relative" }}>
       <Image
         style={{
           width: "100%",
@@ -224,8 +219,8 @@ const SideBySideRenderer = props => {
           transition: `opacity ${transSpeed}s ease`,
           zIndex: "100",
           ...zoomContainerStyle,
-          border: inPlace ? "none" : zoomContainerBorder,
-          boxShadow: inPlace ? "none" : zoomContainerBoxShadow
+          border: zoomContainerBorder,
+          boxShadow: zoomContainerBoxShadow
         }}
       >
         <Image
