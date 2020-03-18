@@ -21,14 +21,18 @@ function MagnifierPreviewRenderer(props) {
     onLargeImageLoad,
     renderOverlay,
     transitionSpeed,
-    inPlace,
+    inPlace: shouldBeInPlace,
     position
   } = props;
 
+  // Ensures that client and server dom match when using SSR.
+  const [inPlace, setInPlace] = React.useState(false);
+  React.useEffect(() => {
+    setInPlace(shouldBeInPlace);
+  }, [shouldBeInPlace]);
+
   return (
-    <div
-      style={{ position: "relative", overflow: inPlace ? "hidden" : "visible" }}
-    >
+    <div style={{ position: "relative" }}>
       <Image
         style={{ display: "block", width: "100%" }}
         src={image}

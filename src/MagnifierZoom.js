@@ -21,6 +21,7 @@ function MagnifierZoom(props) {
     position,
     onZoomImageLoad,
     zoomRef,
+    zoomImageRef,
     isActive,
     inPlace
   } = React.useContext(MagnifierContext);
@@ -42,6 +43,7 @@ function MagnifierZoom(props) {
       ref={zoomRef}
     >
       <Image
+        ref={zoomImageRef}
         style={{
           ...styles.getLargeImageStyle(
             invalidHorizontal ? 0 : position.x,

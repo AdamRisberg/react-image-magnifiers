@@ -7,11 +7,11 @@ export const MagnifierContext = React.createContext();
 
 class MagnifierContainer extends Component {
   state = {
-    inputPositionState: defaultState,
-    zoomImageDimensions: {},
-    zoomContainerDimensions: {}
+    inputPositionState: defaultState
   };
   zoomContainerRef = React.createRef();
+  zoomImageRef = React.createRef();
+  zoomImageDimensions = { width: 0, height: 0 };
 
   static propTypes = {
     className: PropTypes.string,
@@ -41,19 +41,27 @@ class MagnifierContainer extends Component {
     return { width, height, left, right, top, bottom };
   };
 
+  getZoomImageDimensions() {
+    if (!this.zoomImageDimensions.width && this.zoomImageRef.current) {
+      const rect = this.zoomImageRef.current.getBoundingClientRect();
+      this.zoomImageDimensions = {
+        width: rect.width,
+        height: rect.height
+      };
+    }
+    return this.zoomImageDimensions;
+  }
+
   onUpdate = changes => {
     this.setState({ inputPositionState: changes });
   };
 
   onZoomImageLoad = e => {
     const rect = e.target.getBoundingClientRect();
-
-    this.setState({
-      zoomImageDimensions: {
-        width: rect.width,
-        height: rect.height
-      }
-    });
+    this.zoomImageDimensions = {
+      width: rect.width,
+      height: rect.height
+    };
   };
 
   getContextValue() {
@@ -61,8 +69,9 @@ class MagnifierContainer extends Component {
       stateOverride: this.state.inputPositionState,
       isActive: this.state.inputPositionState.active,
       onUpdate: this.onUpdate,
-      zoomImageDimensions: this.state.zoomImageDimensions,
+      zoomImageDimensions: this.zoomImageDimensions,
       zoomRef: this.zoomContainerRef,
+      zoomImageRef: this.zoomImageRef,
       onZoomImageLoad: this.onZoomImageLoad,
       ...this.calculatePositions()
     };
@@ -70,8 +79,8 @@ class MagnifierContainer extends Component {
 
   calculatePositions() {
     const { elementDimensions, itemPosition } = this.state.inputPositionState;
-    const { zoomImageDimensions } = this.state;
     const zoomContainerDimensions = this.getZoomContainerDimensions();
+    const zoomImageDimensions = this.getZoomImageDimensions();
 
     let inPlace = false;
     const { autoInPlace, inPlaceMinBreakpoint } = this.props;
