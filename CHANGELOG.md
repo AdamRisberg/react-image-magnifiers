@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.1 (March 18th, 2020)
+
+- Fixed an issue preventing the custom magnifier components from functioning properly in an SSR project.
+- Improved SSR support by ensuring that the client side DOM matches the server side DOM when hydrating.
+
 ## 1.3.0 (March 16th, 2020)
 
 - Added additional layout/sizing options to the SideBySideMagnifier, including the ability to fill all available space on zoom.
