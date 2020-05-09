@@ -31,7 +31,11 @@ const MagnifierRenderer = props => {
   return (
     <div style={{ position: "relative", cursor: finalCursorStyle }}>
       <Image
-        style={{ width: "100%", display: "block" }}
+        style={{
+          display: "block",
+          visibility: isActive ? "hidden" : "visible",
+          width: "100%"
+        }}
         src={imageSrc}
         alt={imageAlt}
         onImageLoad={onImageLoad}
