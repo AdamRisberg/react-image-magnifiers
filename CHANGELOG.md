@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.2 (May 9th, 2020)
+
+- Added support for images with transparency in Magnifier component by hiding preview image when zoomed.
+
 ## 1.3.1 (March 18th, 2020)
 
 - Fixed an issue preventing the custom magnifier components from functioning properly in an SSR project.
