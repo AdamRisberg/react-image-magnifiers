@@ -22,7 +22,7 @@ The following components can be used together to create more advanced magnifier 
   <div className="example-class">
     <MagnifierPreview imageSrc="./image.jpg" />
   </div>
-    <MagnifierZoom style={{ height: "400px" }} imageSrc="./image.jpg">
+    <MagnifierZoom style={{ height: "400px" }} imageSrc="./image.jpg"/>
 </MagnifierContainer>
 ```
 
