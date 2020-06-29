@@ -38,19 +38,21 @@ const SideBySideMagnifier = props => {
     fillGapBottom,
     inPlaceMinBreakpoint,
     zoomContainerBorder,
-    zoomContainerBoxShadow
+    zoomContainerBoxShadow,
+    mouseActivation,
+    touchActivation,
   } = props;
 
   return (
     <ReactInputPosition
       style={style}
       className={className}
-      touchActivationMethod={TOUCH_ACTIVATION.TOUCH}
-      mouseActivationMethod={MOUSE_ACTIVATION.HOVER}
       onActivate={onZoomStart}
       onDeactivate={onZoomEnd}
       trackItemPosition
       linkItemToActive
+      touchActivationMethod={touchActivation}
+      mouseActivationMethod={mouseActivation}
     >
       <SideBySideRenderer
         imageSrc={imageSrc}
@@ -117,7 +119,9 @@ SideBySideMagnifier.propTypes = {
   fillGapBottom: PropTypes.number,
   inPlaceMinBreakpoint: PropTypes.number,
   zoomContainerBorder: PropTypes.string,
-  zoomContainerBoxShadow: PropTypes.string
+  zoomContainerBoxShadow: PropTypes.string,
+  mouseActivation: PropTypes.string,
+  touchActivation: PropTypes.string,
 };
 
 SideBySideMagnifier.defaultProps = {
@@ -143,7 +147,9 @@ SideBySideMagnifier.defaultProps = {
   fillGapBottom: 0,
   inPlaceMinBreakpoint: 0,
   zoomContainerBorder: "none",
-  zoomContainerBoxShadow: "none"
+  zoomContainerBoxShadow: "none",
+  mouseActivation: MOUSE_ACTIVATION.HOVER,
+  touchActivation: TOUCH_ACTIVATION.DOUBLE_TAP,
 };
 
 export default SideBySideMagnifier;
