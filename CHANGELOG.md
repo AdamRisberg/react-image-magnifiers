@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0 (July 3rd, 2020)
+
+- Added props for changing activation method on SideBySideMagnifier and MagnifierPreview.
+
 ## 1.3.2 (May 9th, 2020)
 
 - Added support for images with transparency in Magnifier component by hiding preview image when zoomed.

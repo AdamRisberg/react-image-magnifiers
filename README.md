@@ -168,6 +168,10 @@ _Note: onZoomStart and onZoomEnd behaves differently with PictureInPictureMagnif
 
 ## SideBySideMagnifier Props
 
+**mouseActivation:** Sets the mouse method for zooming in/out. Accepts: "click" or "doubleClick". Can also import the MOUSE_ACTIVATION constants to assist. Type: string, Default: "click".
+
+**touchActivation:** Sets the touch method for zooming in/out. Accepts: "tap", "doubleTap", or "longTouch". Can also import the TOUCH_ACTIVATION constants to assist. Type: string, Default: "tap".
+
 **alwaysInPlace:** Activate in place mode, which displays the zoomed image in the same place instead of to the side. By default, the component goes into this mode automatically whenever there isn't enough room to display the zoomed image alongside. Type: boolean, Default: false.
 
 **switchSides:** Displays the zoomed image on the left side of the preview, instead of the right side. Regardless of the intended side, the zoomed image will be displayed in place if there isn't enough room available.
@@ -211,6 +215,10 @@ _Note: onZoomStart and onZoomEnd behaves differently with PictureInPictureMagnif
 **inPlaceMinBreakpoint:** Causes the magnifier to automatically switch to in place mode (zoomed view is displayed in the same place as the preview) based on a min width breakpoint. Accepts a number representing the target screen size (in pixels) when in place mode will become active. Requires largeImageSrc to be set on the MagnifierPreview component. Type: number, default: 0.
 
 ## MagnifierPreview Props
+
+**mouseActivation:** Sets the mouse method for zooming in/out. Accepts: "click" or "doubleClick". Can also import the MOUSE_ACTIVATION constants to assist. Type: string, Default: "click".
+
+**touchActivation:** Sets the touch method for zooming in/out. Accepts: "tap", "doubleTap", or "longTouch". Can also import the TOUCH_ACTIVATION constants to assist. Type: string, Default: "tap".
 
 **imageSrc:** Passed to the src of the image. Also accepts an array of image paths in case fallbacks are required. Each image path in the array will be tried in order until either one loads, or the end of the array is reached. Type: string or array of strings, Default: "".
 

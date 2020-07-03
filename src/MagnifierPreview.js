@@ -27,7 +27,9 @@ function MagnifierPreview(props) {
     overlayBoxImageSize,
     transitionSpeed,
     onZoomStart,
-    onZoomEnd
+    onZoomEnd,
+    mouseActivation,
+    touchActivation
   } = props;
 
   const {
@@ -42,8 +44,8 @@ function MagnifierPreview(props) {
 
   return (
     <ReactInputPosition
-      mouseActivationMethod={MOUSE_ACTIVATION.HOVER}
-      touchActivationMethod={TOUCH_ACTIVATION.TOUCH}
+      touchActivationMethod={touchActivation}
+      mouseActivationMethod={mouseActivation}
       onActivate={onZoomStart}
       onDeactivate={onZoomEnd}
       className={className}
@@ -100,7 +102,9 @@ MagnifierPreview.propTypes = {
   overlayBoxColor: PropTypes.string,
   overlayBoxImage: PropTypes.string,
   overlayBoxImageSize: PropTypes.string,
-  transitionSpeed: PropTypes.number
+  transitionSpeed: PropTypes.number,
+  mouseActivation: PropTypes.string,
+  touchActivation: PropTypes.string
 };
 
 MagnifierPreview.defaultProps = {
@@ -115,7 +119,9 @@ MagnifierPreview.defaultProps = {
   overlayBoxImageSize: "",
   transitionSpeed: 0.4,
   onImageLoad: utils.noop,
-  onLargeImageLoad: utils.noop
+  onLargeImageLoad: utils.noop,
+  mouseActivation: MOUSE_ACTIVATION.HOVER,
+  touchActivation: TOUCH_ACTIVATION.TOUCH
 };
 
 export default MagnifierPreview;
