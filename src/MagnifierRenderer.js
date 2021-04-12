@@ -20,7 +20,7 @@ const MagnifierRenderer = props => {
     onLoadRefresh
   } = props;
 
-  const legalSize = itemDimensions.width > elementDimensions.width;
+  const legalSize = itemDimensions.width >= elementDimensions.width;
   const isActive = legalSize && active;
   const finalCursorStyle = !legalSize
     ? "default"
