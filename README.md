@@ -278,3 +278,18 @@ cd react-image-magnifiers
 npm install
 npm start
 ```
+
+## Notes for Tailwind CSS
+
+When using magnifiers with Tailwind CSS there is a css rule that prevents magnifiers to correctly work:
+```
+img {
+     max-width: 100%;
+}
+```
+To solve the issue, simply remove the above rule or set the following one
+```
+img {
+    max-width: unset !important;
+}
+```
