@@ -12,6 +12,7 @@ const GlassMagnifier = props => {
     imageSrc,
     largeImageSrc,
     imageAlt,
+    imageOtherProps,
     magnifierBorderSize,
     magnifierBorderColor,
     magnifierBackgroundColor,
@@ -54,6 +55,7 @@ const GlassMagnifier = props => {
         imageSrc={imageSrc}
         largeImageSrc={largeImageSrc}
         imageAlt={imageAlt}
+        imageOtherProps={imageOtherProps}
         square={square}
         magnifierOffsetX={magnifierOffsetX}
         magnifierOffsetY={magnifierOffsetY}
@@ -76,6 +78,7 @@ GlassMagnifier.propTypes = {
     PropTypes.arrayOf(PropTypes.string)
   ]),
   imageAlt: PropTypes.string,
+  imageOtherProps: PropTypes.object,
   allowOverflow: PropTypes.bool,
   magnifierBorderSize: PropTypes.number,
   magnifierBorderColor: PropTypes.string,
@@ -96,6 +99,7 @@ GlassMagnifier.defaultProps = {
   imageSrc: "",
   largeImageSrc: "",
   imageAlt: "",
+  imageOtherProps: {},
   allowOverflow: false,
   magnifierBorderSize: 3,
   magnifierBorderColor: "rgba(255,255,255,.5)",

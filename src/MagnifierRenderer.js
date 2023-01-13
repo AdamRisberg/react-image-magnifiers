@@ -11,6 +11,7 @@ const MagnifierRenderer = props => {
     imageSrc,
     largeImageSrc,
     imageAlt,
+    imageOtherProps,
     itemRef,
     renderOverlay,
     cursorStyle,
@@ -31,6 +32,7 @@ const MagnifierRenderer = props => {
   return (
     <div style={{ position: "relative", cursor: finalCursorStyle }}>
       <Image
+        {...(imageOtherProps || {})}
         style={{
           display: "block",
           visibility: isActive ? "hidden" : "visible",
@@ -49,6 +51,7 @@ const MagnifierRenderer = props => {
         )}
       >
         <Image
+          {...(imageOtherProps || {})}
           style={styles.getLargeImageStyle(
             itemPosition.x,
             itemPosition.y,

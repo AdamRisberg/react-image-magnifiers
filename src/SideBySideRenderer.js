@@ -14,6 +14,7 @@ const SideBySideRenderer = props => {
     imageSrc,
     largeImageSrc,
     imageAlt,
+    imageOtherProps,
     itemRef,
     overlayOpacity,
     overlayBoxOpacity,
@@ -197,6 +198,7 @@ const SideBySideRenderer = props => {
   return (
     <div style={{ position: "relative" }}>
       <Image
+        {...(imageOtherProps || {})}
         style={{
           width: "100%",
           display: "block",
@@ -224,6 +226,7 @@ const SideBySideRenderer = props => {
         }}
       >
         <Image
+          {...(imageOtherProps || {})}
           style={styles.getLargeImageStyle(position.x, position.y, true)}
           src={largeImageSrc || imageSrc}
           alt={imageAlt}
