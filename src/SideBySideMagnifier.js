@@ -12,6 +12,7 @@ const SideBySideMagnifier = props => {
     imageSrc,
     largeImageSrc,
     imageAlt,
+    imageOtherProps,
     overlayOpacity,
     overlayBoxOpacity,
     overlayBackgroundColor,
@@ -58,6 +59,7 @@ const SideBySideMagnifier = props => {
         imageSrc={imageSrc}
         largeImageSrc={largeImageSrc}
         imageAlt={imageAlt}
+        imageOtherProps={imageOtherProps}
         overlayOpacity={overlayOpacity}
         overlayBoxOpacity={overlayBoxOpacity}
         overlayBackgroundColor={overlayBackgroundColor}
@@ -96,6 +98,7 @@ SideBySideMagnifier.propTypes = {
     PropTypes.arrayOf(PropTypes.string)
   ]),
   imageAlt: PropTypes.string,
+  imageOtherProps: PropTypes.object,
   overlayOpacity: PropTypes.number,
   overlayBoxOpacity: PropTypes.number,
   overlayBackgroundColor: PropTypes.string,
@@ -128,6 +131,7 @@ SideBySideMagnifier.defaultProps = {
   imageSrc: "",
   largeImageSrc: "",
   imageAlt: "",
+  imageOtherProps: {},
   overlayOpacity: 0.5,
   overlayBoxOpacity: 0.8,
   overlayBackgroundColor: "#000",

@@ -12,6 +12,7 @@ const Magnifier = props => {
     imageSrc,
     largeImageSrc,
     imageAlt,
+    imageOtherProps,
     cursorStyle,
     cursorStyleActive,
     renderOverlay,
@@ -50,6 +51,7 @@ const Magnifier = props => {
         imageSrc={imageSrc}
         largeImageSrc={largeImageSrc}
         imageAlt={imageAlt}
+        imageOtherProps={imageOtherProps}
         renderOverlay={renderOverlay}
         cursorStyle={cursorStyle}
         cursorStyleActive={finalActiveCursorStyle}
@@ -72,6 +74,7 @@ Magnifier.propTypes = {
     PropTypes.arrayOf(PropTypes.string)
   ]),
   imageAlt: PropTypes.string,
+  imageOtherProps: PropTypes.object,
   cursorStyle: PropTypes.string,
   cursorStyleActive: PropTypes.string,
   renderOverlay: PropTypes.func,
@@ -95,6 +98,7 @@ Magnifier.defaultProps = {
   imageSrc: "",
   largeImageSrc: "",
   imageAlt: "",
+  imageOtherProps: {},
   cursorStyle: "zoom-in",
   cursorStyleActive: "",
   dragToMove: true,

@@ -9,6 +9,7 @@ function MagnifierZoom(props) {
   const {
     imageSrc,
     imageAlt,
+    imageOtherProps,
     className,
     style,
     onImageLoad,
@@ -43,6 +44,7 @@ function MagnifierZoom(props) {
       ref={zoomRef}
     >
       <Image
+        {...(imageOtherProps || {})}
         ref={zoomImageRef}
         style={{
           ...styles.getLargeImageStyle(
@@ -70,6 +72,7 @@ MagnifierZoom.propTypes = {
     PropTypes.arrayOf(PropTypes.string)
   ]),
   imageAlt: PropTypes.string,
+  imageOtherProps: PropTypes.object,
   onImageLoad: PropTypes.func,
   transitionSpeed: PropTypes.number
 };
@@ -78,6 +81,7 @@ MagnifierZoom.defaultProps = {
   style: {},
   imageSrc: "",
   imageAlt: "",
+  imageOtherProps: {},
   onImageLoad: utils.noop,
   transitionSpeed: 0.4
 };

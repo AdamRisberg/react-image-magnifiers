@@ -20,6 +20,7 @@ class PictureInPictureMagnifier extends Component {
       PropTypes.arrayOf(PropTypes.string)
     ]),
     imageAlt: PropTypes.string,
+    imageOtherProps: PropTypes.object,
     previewSizePercentage: PropTypes.number,
     previewHorizontalPos: PropTypes.oneOf(["left", "right"]),
     previewVerticalPos: PropTypes.oneOf(["top", "bottom"]),
@@ -47,6 +48,7 @@ class PictureInPictureMagnifier extends Component {
     imageSrc: "",
     largeImageSrc: "",
     imageAlt: "",
+    imageOtherProps: {},
     previewSizePercentage: 35,
     previewHorizontalPos: "left",
     previewVerticalPos: "bottom",
@@ -69,6 +71,7 @@ class PictureInPictureMagnifier extends Component {
       imageSrc,
       largeImageSrc,
       imageAlt,
+      imageOtherProps,
       previewSizePercentage,
       previewHorizontalPos,
       previewVerticalPos,
@@ -135,6 +138,7 @@ class PictureInPictureMagnifier extends Component {
             imageSrc={imageSrc}
             largeImageSrc={largeImageSrc}
             imageAlt={imageAlt}
+            imageOtherProps={imageOtherProps}
             renderOverlay={renderOverlay}
             cursorStyle={cursorStyle}
             cursorStyleActive={cursorStyleActive || cursorStyle}

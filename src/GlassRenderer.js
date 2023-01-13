@@ -14,6 +14,7 @@ const GlassRenderer = props => {
     imageSrc,
     largeImageSrc,
     imageAlt,
+    imageOtherProps,
     magnifierBorderSize,
     magnifierBorderColor,
     magnifierBackgroundColor,
@@ -53,6 +54,7 @@ const GlassRenderer = props => {
   return (
     <React.Fragment>
       <Image
+        {...(imageOtherProps || {})}
         style={{
           width: "100%",
           display: "block",
@@ -81,6 +83,7 @@ const GlassRenderer = props => {
         }}
       >
         <Image
+          {...(imageOtherProps || {})}
           style={styles.getLargeImageStyle(position.x, position.y, isActive)}
           ref={itemRef}
           src={largeImageSrc || imageSrc}

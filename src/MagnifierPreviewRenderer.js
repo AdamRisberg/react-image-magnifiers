@@ -8,6 +8,7 @@ function MagnifierPreviewRenderer(props) {
     image,
     largeImage,
     alt,
+    imageOtherProps,
     previewSize,
     smallImageSize,
     overlayOpacity,
@@ -71,6 +72,7 @@ function MagnifierPreviewRenderer(props) {
           }}
         >
           <Image
+            {...(imageOtherProps || {})}
             style={{
               ...styles.getLargeImageStyle(position.x, position.y, inPlace)
             }}

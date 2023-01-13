@@ -13,6 +13,7 @@ const PictureInPictureRenderer = props => {
     imageSrc,
     largeImageSrc,
     imageAlt,
+    imageOtherProps,
     itemRef,
     previewSizePercentage,
     containerRef,
@@ -140,6 +141,7 @@ const PictureInPictureRenderer = props => {
       }}
     >
       <Image
+        {...(imageOtherProps || {})}
         style={{
           width: "100%",
           display: "block",
@@ -170,6 +172,7 @@ const PictureInPictureRenderer = props => {
         }}
       >
         <Image
+          {...(imageOtherProps || {})}
           style={{
             ...styles.getLargeImageStyle(position.x, position.y, true),
             visibility: legalSize ? "visible" : "hidden",

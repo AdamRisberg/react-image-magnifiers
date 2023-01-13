@@ -12,6 +12,7 @@ function MagnifierPreview(props) {
   const {
     imageSrc,
     imageAlt,
+    imageOtherProps,
     largeImageSrc,
     className,
     style,
@@ -60,6 +61,7 @@ function MagnifierPreview(props) {
         image={imageSrc}
         largeImage={largeImageSrc}
         alt={imageAlt}
+        imageOtherProps={imageOtherProps}
         zoomImageDimensions={zoomImageDimensions}
         previewSize={previewSize}
         smallImageSize={smallImageSize}
@@ -93,6 +95,7 @@ MagnifierPreview.propTypes = {
     PropTypes.arrayOf(PropTypes.string)
   ]),
   imageAlt: PropTypes.string,
+  imageOtherProps: PropTypes.object,
   onImageLoad: PropTypes.func,
   onLargeImageLoad: PropTypes.func,
   renderOverlay: PropTypes.func,
@@ -111,6 +114,7 @@ MagnifierPreview.defaultProps = {
   cursorStyle: "crosshair",
   imageSrc: "",
   imageAlt: "",
+  imageOtherProps: {},
   overlayOpacity: 0.5,
   overlayBoxOpacity: 0.8,
   overlayBackgroundColor: "#000",
