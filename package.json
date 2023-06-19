@@ -1,5 +1,5 @@
 {
-  "name": "react-image-magnifiers",
+  "name": "@vanyapr/react-image-magnifiers",
   "version": "1.4.0",
   "description": "A collection of responsive, image magnifying React components for mouse and touch.",
   "keywords": [
@@ -21,7 +21,7 @@
   "author": "Adam Risberg <myniztan@hotmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/adamrisberg/react-image-magnifiers.git"
+    "url": "https://github.com/vanyapr/react-image-magnifiers"
   },
   "homepage": "https://adamrisberg.github.io/react-image-magnifiers",
   "main": "dist/index.js",
@@ -37,8 +37,8 @@
     "publish-demo": "npm run build && npm run deploy"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",
